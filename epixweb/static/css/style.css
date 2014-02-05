@@ -1,0 +1,384 @@
+/*
+Theme Name: EpixNew
+Theme URI: http://epixstudios.co.uk
+Description: EpixStudios Wordpress theme
+Version: 1.0
+Author: Damian Moore
+Author URI: http://epixstudios.co.uk
+*/
+
+/* reset css */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+body {line-height:1.5;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;}
+table, td, th {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+
+
+/*YAHOO! RESET*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img {
+    border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+ol,ul {
+    list-style:none;
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym {
+    border:0;
+}
+/*---------- END RESET ----------*/
+
+
+
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+@font-face {
+    font-family: 'tex_gyre_bonumbold_italic';
+    src: url('../fonts/texgyrebonum-bolditalic-webfont.eot');
+    src: url('../fonts/texgyrebonum-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/texgyrebonum-bolditalic-webfont.woff') format('woff'),
+         url('../fonts/texgyrebonum-bolditalic-webfont.ttf') format('truetype'),
+         url('../fonts/texgyrebonum-bolditalic-webfont.svg#tex_gyre_bonumbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Droid Sans'), local('DroidSans'), url('http://epixstudios.co.uk/wp-content/themes/epix/fonts/DroidSans.woff') format('woff'), url('https://themes.googleusercontent.com/font?kit=s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0') format('woff');
+}
+
+
+html {
+    font-size: 16px;
+    height: 101%;
+}
+body {
+    font-size: 62.5%;
+    font-family: 'Droid Sans', Verdana, sans-serif;
+    color: #000;
+    background: #000;
+    overflow-x: hidden;
+}
+body#home {
+    height: 100%;
+    /*overflow: hidden;*/
+}
+
+img#bg_image {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#header {
+    height: 300px;
+}
+
+
+
+h1 {
+    font-family: 'Permanent Marker', Impact, sans-serif;
+    font-size: 3em;
+    line-height: 0.833em;
+    font-style: italic;
+    word-spacing: 0.06em;
+    text-align: left;
+    letter-spacing: 0.02em;
+    margin: 0.64em 0 0.8em -0.333em;
+    color: #fff;
+    background: #f04;
+    padding: 0.166em 0.333em 0.25em;
+    max-width: 70%;
+    text-shadow: #000 2px 2px 0;
+}
+#content p {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 20px 0;
+    word-spacing: 4px;
+}
+strong {
+    font-weight:bold;
+}
+#content ul {
+    padding-left:2em;
+    font-size: 12px;
+    line-height: 18px;
+    margin: 20px 0;
+    word-spacing: 4px;
+}
+li {
+    list-style:square;
+}
+
+.clear {
+    clear: both;
+}
+
+
+#wrapper {
+    margin: 100px;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:10;
+}
+body#home #wrapper {
+    margin: 0;
+    position:absolute; top:200px; left:20px; z-index:10;
+}
+
+#logo {
+    background: rgba(0, 0, 0, 0.666);
+    position: absolute;
+    top: 35px;
+    left: -10px;
+    padding: 15px 50px 15px 80px;
+    transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Safari and Chrome */
+}
+@media all and (max-width: 400px) {
+    #logo {
+        padding-left: 50px;
+        padding-right: 40px;
+    }
+}
+#logo img {
+    width: 215px;
+}
+
+
+.menu {
+    background: rgba(0, 0, 0, 0.666);
+    position: absolute;
+    top: 200px;
+    right: -10px;
+    width: 500px;
+    list-style-type: none;
+    padding: 2px 0 7px 0;
+    transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg); /* IE 9 */
+    -webkit-transform: rotate(-5deg); /* Safari and Chrome */
+}
+.menu li {
+    display: inline;
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+}
+.menu li a {
+    text-decoration: none;
+    color: #f04;
+}
+.menu li a:hover {
+    color: #bf0;
+}
+@media all and (max-width: 500px) {
+    .menu {
+        width: 330px;
+    }
+    .menu li {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+}
+
+
+
+#home #header {
+    height: 100%
+}
+
+#content {
+    width: 900px;
+    padding: 30px;
+    margin: 0 auto 30px auto;
+    background: #fff;
+    background: rgba(255,255,255,0.95);
+    border-top: 5px solid #bf0;
+    border-bottom: 5px solid #bf0;
+}
+
+@media all and (max-width: 900px) {
+    #content {
+        width: 100%;
+    }
+}
+
+#content .page-type {color: #737373; font-size: 20px; display:block; margin-bottom: 20px; margin-top: 20px; }
+#content .page-type span { font-size: 13px; }
+
+.cover-photo {
+    display: inline-block;
+    margin: 0 20px 20px 0;
+    width: 200px;
+}
+.summary {
+    display: inline-block;
+    vertical-align: top;
+    width: 600px;
+}
+
+#content #project-meta h3 { font-size: 20px; color:#000;}
+#content #project-meta { color: #555454; clear: both; margin-bottom: 20px; margin-top: 20px;}
+#content #project-meta .box span{ min-width:180px; float:left;}
+#content #project-meta .box { display: block; color: #555454; }
+/*#content h1 { color:#ccc; font-size:19px; line-height: 25px;  margin-top: 20px; display: block; text-shadow:0 1px 0 #000000; }*/
+#content h1 {
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+    font-size: 30px;
+    line-height: 0.833em;
+    word-spacing: 0.06em;
+    text-align: left;
+    letter-spacing: 0.02em;
+    margin: 0 0 20px -30px;
+    color: #fff;
+    background: #f04;
+    padding: 2px 30px 9px;
+    max-width: 75%;
+    text-shadow: #000 2px 2px 0;
+}
+@media all and (max-width: 500px) {
+    #content h1 {
+        max-width: 100%;
+    }
+}
+#content h2 {
+    font-size: 22px;
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+}
+#content h3 {
+    font-size: 20px;
+    font-family: 'Permanent Marker', Impact, sans-serif;
+}
+#content h4 {
+    font-size: 17px;
+    font-family: 'Permanent Marker', Impact, sans-serif;
+}
+
+#content a, #content a:link, #content a:active, #content a:visited, #content a:hover {
+    text-decoration:underline;
+    font-weight:bold;
+    color:#f04;
+}
+#content a:hover, #content a:visited {
+    color:#f04;
+}
+
+#content h1 a, #content h1 a:link {
+    font-weight: normal;
+    text-decoration: none;
+    color: #fff;
+}
+#content h1 a:visited {
+    color:#bf0;
+}
+
+#footer {
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+}
+#footer a {
+    color: #666;
+    text-decoration: underline;
+}
+#footer #license {
+    margin: 0 10px;
+}
+
+
+#social_bar {
+    width: 900px;
+    padding: 30px;
+    margin: 0 auto 30px auto;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+    border-top: 5px solid #bf0;
+    border-bottom: 5px solid #bf0;
+}
+
+@media all and (max-width: 900px) {
+    #social_bar {
+        width: 100%;
+    }
+}
+#social_bar h2 {
+    font-size:2em;
+}
+#social_photo ul {
+    margin:20px 0;
+    padding:0;
+}
+#social_photo li {
+    float: left;
+    list-style:none;
+    margin:0;
+}
+#social_ublog ul {
+    margin:20px 0;
+    padding:0;
+}
+#social_ublog li {
+    float: left;
+    list-style:none;
+    margin:0;
+}
+#social_bar .column {
+    width: 258px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+}
+#social_bar .column:last-child {
+    margin-right: 0;
+}
+#social_bar .photos ul {
+    list-style-type: none;
+}
+#social_bar .photos li {
+    display: inline-block;
+    margin: 0 3px 3px 0;
+}
+#social_bar .photos .thumbnail {
+    background-color: #555;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+}
+
+

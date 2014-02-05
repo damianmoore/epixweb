@@ -1,0 +1,11 @@
+<div class="column code">
+    <h2>Code (GitHub)</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <div>{{ item.title|urlize }}</div>
+                <div>{{ item.date|timesince }} ago</div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

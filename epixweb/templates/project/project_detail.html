@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block extrahead %}
+    <link rel="alternate" type="application/atom+xml" title="Damian Moore's Project Feed" href="{% url 'project-feed' %}" />
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    {{ object.created }}
+    {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
+    {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
+    {% if gallery %}
+        <div class="photo-gallery">
+            {% for photo in gallery.photos.all %}
+            <div class="gallery-photo">
+                <a href="{{ photo.image.url }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

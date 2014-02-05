@@ -1,0 +1,23 @@
+# This file collects all required third-party applications that are needed
+# to run this project. Later you can install all these apps in a row
+# using pip. Example::
+#
+#     pip install -r requirements.pip
+
+Django==1.6.1
+Markdown==2.3.1
+django-markupfield==1.2.0
+django-treebeard==1.61
+South==0.8.4
+Pillow==2.3.0
+pytz==2013.9
+django-photologue==2.7
+twitter==1.11.1
+celery==3.1.8
+redis==2.9.1
+django-celery==3.1.1
+django-cacheback==0.6
+python-memcached==1.53
+django-redis==3.5.0
+pylibmc==1.2.3
+feedparser==5.1.3

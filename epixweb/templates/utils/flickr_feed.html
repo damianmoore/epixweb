@@ -1,0 +1,10 @@
+<div class="column photos">
+    <h2>Photos (Flickr)</h2>
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{{ item.link }}"><div class="thumbnail" style="background-image: url({{ item.thumbnail }})" title="{{ item.title }} - {{ item.date|timesince }} ago"></div></a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

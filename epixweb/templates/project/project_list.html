@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block extrahead %}
+    <link rel="alternate" type="application/atom+xml" title="Damian Moore's Project Feed" href="{% url 'project-feed' %}" />
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'project-feed' %}">Project feed</a>
+    {% for project in object_list %}
+        <div class="project">
+            <h1><a href="{% url 'project-detail' slug=project.slug %}">{{ project.title }}</a></h1>
+            {% if project.photo %}
+                <a href="{% url 'project-detail' slug=project.slug %}"><img src="{{ project.photo.get_display_url }}" alt="{{ project.photo.title }}" class="cover-photo" /></a>
+            {% endif %}
+            <div class="summary">
+                {{ project.created }}
+                {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
+                {{ project.content.rendered|fetch_external_markdown|strip_heading|limit_paras|safe }}
+                <p><a href="{% url 'project-detail' slug=project.slug %}">Read more&hellip;</a></p>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="{% url 'blog-post-list' %}?page={{ page_obj.previous_page_number }}">&lt; Previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="{% url 'blog-post-list' %}?page={{ page_obj.next_page_number }}">Next &gt;</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}

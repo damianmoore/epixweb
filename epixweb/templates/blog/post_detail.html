@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <link rel="alternate" type="application/atom+xml" title="Damian Moore's Blog Feed" href="{% url 'blog-post-feed' %}" />
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    {{ object.created }}
+    {{ object.content }}
+{% endblock %}
