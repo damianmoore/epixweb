@@ -17,7 +17,6 @@ celery==3.1.8
 redis==2.9.1
 django-celery==3.1.1
 django-cacheback==0.6
-python-memcached==1.53
 django-redis==3.5.0
 pylibmc==1.2.3
 feedparser==5.1.3

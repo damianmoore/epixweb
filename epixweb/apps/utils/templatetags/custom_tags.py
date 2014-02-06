@@ -37,7 +37,7 @@ def get_latest_tweets(limit=10):
 
 @register.simple_tag
 def twitter_feed():
-    items = get_latest_tweets()
+    items = get_latest_tweets(limit=6)
     return render_to_string('utils/twitter_feed.html', {'items': items})
 
 

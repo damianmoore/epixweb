@@ -110,7 +110,7 @@ img#bg_image {
 
 
 h1 {
-    font-family: 'Permanent Marker', Impact, sans-serif;
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif
     font-size: 3em;
     line-height: 0.833em;
     font-style: italic;
@@ -142,6 +142,7 @@ strong {
 }
 li {
     list-style:square;
+    margin-left: 20px;
 }
 
 .clear {
@@ -243,6 +244,7 @@ body#home #wrapper {
 #content .page-type span { font-size: 13px; }
 
 .cover-photo {
+    border: 1px solid #555;
     display: inline-block;
     margin: 0 20px 20px 0;
     width: 200px;
@@ -283,11 +285,11 @@ body#home #wrapper {
 }
 #content h3 {
     font-size: 20px;
-    font-family: 'Permanent Marker', Impact, sans-serif;
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif
 }
 #content h4 {
     font-size: 17px;
-    font-family: 'Permanent Marker', Impact, sans-serif;
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif
 }
 
 #content a, #content a:link, #content a:active, #content a:visited, #content a:hover {
@@ -372,13 +374,14 @@ body#home #wrapper {
 }
 #social_bar .photos li {
     display: inline-block;
-    margin: 0 3px 3px 0;
+    margin: 0 2px 2px 0;
 }
 #social_bar .photos .thumbnail {
     background-color: #555;
     background-size: cover;
-    width: 80px;
-    height: 80px;
+    border: 1px solid #555;
+    width: 82px;
+    height: 82px;
 }
 
 

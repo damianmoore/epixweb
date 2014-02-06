@@ -8,7 +8,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'priority', 'status', 'created', 'updated')
     list_filter = ('status', 'created', 'updated')
     search_fields = ('title', 'slug', 'status')
-    ordering = ('-priority', 'slug', 'created', 'updated')
+    ordering = ('-priority',)
 
 
 admin.site.register(Project, ProjectAdmin)
