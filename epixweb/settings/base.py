@@ -32,7 +32,8 @@ INSTALLED_APPS = (
 
     'south',
     #'markupfield',
-    'treebeard',
+    'mptt',
+    'mptt_tree_editor',
     'tagging',
     'photologue',
     'djcelery',

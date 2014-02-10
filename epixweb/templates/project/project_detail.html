@@ -9,7 +9,6 @@
     <h1>{{ object.title }}</h1>
     {{ object.created }}
     {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
-    {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
     {% if gallery %}
         <div class="photo-gallery">
             {% for photo in gallery.photos.all %}
@@ -19,4 +18,10 @@
             {% endfor %}
         </div>
     {% endif %}
+    {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
+    <ul>
+    {% for project in sub_projects %}
+        <li><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></li>
+    {% endfor %}
+    </ul>
 {% endblock %}
