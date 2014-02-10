@@ -134,10 +134,9 @@ strong {
     font-weight:bold;
 }
 #content ul {
-    padding-left:2em;
+    padding-left:20px;
     font-size: 12px;
     line-height: 18px;
-    margin: 20px 0;
     word-spacing: 4px;
 }
 li {

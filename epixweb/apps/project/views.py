@@ -24,8 +24,6 @@ class ProjectDetail(DetailView):
                     project = project.get_descendants().get(slug=slug_parts[i])
         except Project.DoesNotExist:
             raise Http404
-        #import pdb; pdb.set_trace()
-        #project = get_object_or_404(Project, slug=self.kwargs['slug'])
         return project
 
     def get_context_data(self, *args, **kwargs):

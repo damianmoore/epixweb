@@ -15,7 +15,6 @@ PROJECT_STATUSES = (
 class Project(MPTTModel, VersionedModel):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50)
-    priority = models.FloatField()
     status = models.CharField(max_length=20, choices=PROJECT_STATUSES, default=PROJECT_STATUSES[0][0])
     content = MarkupField(default_markup_type='markdown')
     photo = models.ForeignKey(Photo, null=True, blank=True)

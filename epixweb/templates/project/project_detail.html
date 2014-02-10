@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load custom_tags %}
+{% load custom_tags mptt_tags %}
 
 {% block extrahead %}
     <link rel="alternate" type="application/atom+xml" title="Damian Moore's Project Feed" href="{% url 'project-feed' %}" />
@@ -19,9 +19,16 @@
         </div>
     {% endif %}
     {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
-    <ul>
-    {% for project in sub_projects %}
-        <li><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></li>
-    {% endfor %}
+    <ul class="sub-pages">
+        {% recursetree sub_projects %}
+            <li>
+                <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
+                {% if not node.is_leaf_node %}
+                    <ul class="children">
+                        {{ children }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endrecursetree %}
     </ul>
 {% endblock %}
