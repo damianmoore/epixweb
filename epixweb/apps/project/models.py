@@ -3,6 +3,7 @@ from django.db import models
 from markupfield.fields import MarkupField
 from photologue.models import Photo
 from mptt.models import MPTTModel, TreeForeignKey
+from taggit_autosuggest.managers import TaggableManager
 
 from epixweb.apps.utils.models import VersionedModel
 
@@ -20,6 +21,7 @@ class Project(MPTTModel, VersionedModel):
     photo = models.ForeignKey(Photo, null=True, blank=True)
     github_uri = models.CharField(max_length=100, blank=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
+    tags = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.title

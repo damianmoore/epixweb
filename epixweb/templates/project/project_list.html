@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load custom_tags %}
+{% load custom_tags taggit_extras %}
 
 {% block extrahead %}
     <link rel="alternate" type="application/atom+xml" title="Damian Moore's Project Feed" href="{% url 'project-feed' %}" />
@@ -15,12 +15,22 @@
             {% endif %}
             <div class="summary">
                 {{ project.created }}
+                <div class="tags">
+                    {% for tag in project.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </div>
                 {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
                 {{ project.content.rendered|fetch_external_markdown|strip_heading|limit_paras|safe }}
                 <p><a href="{% url 'project-detail' slug=project.slug %}">Read more&hellip;</a></p>
             </div>
         </div>
     {% endfor %}
+
+    <div class="tag-cloud">
+        {% get_tagcloud as tags for 'epixweb.apps.project.Project' %}
+        {% for tag in tags %}
+            <span class="tag" style="font-size: {{ tag.weight|floatformat:0 }}px">{{ tag }}</span>
+        {% endfor %}
+    </div>
 
     {% if is_paginated %}
         <div class="pagination">

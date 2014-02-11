@@ -35,6 +35,9 @@ INSTALLED_APPS = (
     'mptt',
     'mptt_tree_editor',
     'tagging',
+    'taggit',
+    'taggit_templatetags',
+    'taggit_autosuggest',
     'photologue',
     'djcelery',
     'cacheback',
@@ -176,3 +179,6 @@ MARKUP_FIELD_TYPES = (
 BROKER_URL = 'redis://localhost:6379/0'
 import djcelery
 djcelery.setup_loader()
+
+TAGGIT_TAGCLOUD_MIN = 10
+TAGGIT_TAGCLOUD_MAX = 20

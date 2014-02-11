@@ -300,12 +300,12 @@ body#home #wrapper {
     color:#f04;
 }
 
-#content h1 a, #content h1 a:link {
+#content h1 a, #content h1 a:link, #content h1 a:visited {
     font-weight: normal;
     text-decoration: none;
     color: #fff;
 }
-#content h1 a:visited {
+#content h1 a:hover {
     color:#bf0;
 }
 
@@ -322,6 +322,24 @@ body#home #wrapper {
     margin: 0 10px;
 }
 
+
+.project .tags {
+    margin: 5px 0;
+}
+.project .tag {
+    background: rgba(55,0,255,0.1);
+    border: 1px solid #3700ff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-right: 10px;
+    padding: 2px 5px;
+}
+
+.tag-cloud .tag {
+    margin-right: 5px;
+    padding: 2px 5px;
+}
 
 #social_bar {
     width: 900px;

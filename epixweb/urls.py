@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^projects/', include('epixweb.apps.project.urls')),
     (r'^blog/', include('epixweb.apps.blog.urls')),
     (r'^photologue/', include('photologue.urls')),
+    (r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
 )
