@@ -6,36 +6,41 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ object.title }}</h1>
-    {{ object.created }}
-    {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
-    {% if gallery %}
-        <div class="photo-gallery">
-            {% for photo in gallery.photos.all %}
-            <div class="gallery-photo">
-                <a href="{{ photo.image.url }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
-            </div>
-            {% endfor %}
+    <div class="project">
+        <h1>{{ object.title }}</h1>
+        {{ object.created }}
+        <div class="tags">
+            {% for tag in object.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}
         </div>
-    {% endif %}
+        {% if project.github_uri %}<p><a href="https://github.com/{{ project.github_uri }}">View this project on GitHub</a></p>{% endif %}
+        {% if gallery %}
+            <div class="photo-gallery">
+                {% for photo in gallery.photos.all %}
+                <div class="gallery-photo">
+                    <a href="{{ photo.image.url }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-    {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
+        {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
 
-    {% if sub_projects %}
-        <h2>Sub Pages</h2>
-        <ul class="sub-pages">
-            {% recursetree sub_projects %}
-                <li>
-                    <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
-                    {% if not node.is_leaf_node %}
-                        <ul class="children">
-                            {{ children }}
-                        </ul>
-                    {% endif %}
-                </li>
-            {% endrecursetree %}
-        </ul>
-    {% endif %}
+        {% if sub_projects %}
+            <h2>Sub Pages</h2>
+            <ul class="sub-pages">
+                {% recursetree sub_projects %}
+                    <li>
+                        <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
+                        {% if not node.is_leaf_node %}
+                            <ul class="children">
+                                {{ children }}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endrecursetree %}
+            </ul>
+        {% endif %}
+    </div>
 
     {% with object.tags.similar_objects as objects %}
         {% include 'snippets/similar_pages.html' %}

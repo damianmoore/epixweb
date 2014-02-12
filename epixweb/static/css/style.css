@@ -326,10 +326,10 @@ body#home #wrapper {
 }
 
 
-.project .tags {
+.project .tags, .post .tags {
     margin: 5px 0;
 }
-.project .tag {
+.project .tag, .post .tag {
     background: rgba(55,0,255,0.1);
     border: 1px solid #3700ff;
     -webkit-border-radius: 2px;

@@ -5,9 +5,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ object.title }}</h1>
-    {{ object.created }}
-    {{ object.content }}
+    <div class="post">
+        <h1>{{ object.title }}</h1>
+        {{ object.created }}
+        <div class="tags">
+            {% for tag in object.tags.all %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+
+        {{ object.content }}
+    </div>
 
     {% with object.tags.similar_objects as objects %}
         {% include 'snippets/similar_pages.html' %}
