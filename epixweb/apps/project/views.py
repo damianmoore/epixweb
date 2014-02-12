@@ -1,12 +1,15 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
+from django_filters.views import FilterView
 from photologue.models import Gallery
 
-from models import Project
+from models import Project, ProjectFilter
 
 
-class ProjectList(ListView):
+class ProjectList(FilterView):
+    model = Project
+    filterset_class = ProjectFilter
     queryset = Project.objects.filter(status='published', level=0)
     paginate_by = 10
 

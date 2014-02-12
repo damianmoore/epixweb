@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.db import models
+import django_filters
 from markupfield.fields import MarkupField
 from photologue.models import Photo
 from mptt.models import MPTTModel, TreeForeignKey
@@ -12,6 +13,7 @@ PROJECT_STATUSES = (
     ('draft', 'Draft'),
     ('published', 'Published'),
 )
+
 
 class Project(MPTTModel, VersionedModel):
     title = models.CharField(max_length=50)
@@ -33,3 +35,11 @@ class Project(MPTTModel, VersionedModel):
         slug_parts.append(self.slug)
         slug = '/'.join(slug_parts)
         return reverse('project-detail', kwargs={'slug': slug})
+
+
+class ProjectFilter(django_filters.FilterSet):
+    slug = django_filters.CharFilter(lookup_type='contains')
+
+    class Meta:
+        model = Project
+        fields = ['slug', 'tags__name',]

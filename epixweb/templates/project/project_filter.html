@@ -25,26 +25,27 @@
         </div>
     {% endfor %}
 
-    <div class="tag-cloud">
-        {% get_tagcloud as tags for 'epixweb.apps.project.Project' %}
-        {% for tag in tags %}
-            <span class="tag" style="font-size: {{ tag.weight|floatformat:0 }}px">{{ tag }}</span>
-        {% endfor %}
-    </div>
-
     {% if is_paginated %}
         <div class="pagination">
             <span class="page-links">
                 {% if page_obj.has_previous %}
-                    <a href="{% url 'blog-post-list' %}?page={{ page_obj.previous_page_number }}">&lt; Previous</a>
+                    <a href="{% url 'project-list' %}?page={{ page_obj.previous_page_number }}">&lt; Previous</a>
                 {% endif %}
                 <span class="page-current">
                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
                 </span>
                 {% if page_obj.has_next %}
-                    <a href="{% url 'blog-post-list' %}?page={{ page_obj.next_page_number }}">Next &gt;</a>
+                    <a href="{% url 'project-list' %}?page={{ page_obj.next_page_number }}">Next &gt;</a>
                 {% endif %}
             </span>
         </div>
     {% endif %}
+
+    <h2>Tags</h2>
+    <div class="tag-cloud">
+        {% get_tagcloud as tags for 'epixweb.apps.project.Project' %}
+        {% for tag in tags %}
+            <a href="{% url 'project-list' %}?tags__name={{ tag }}"><span class="tag" style="font-size: {{ tag.weight|floatformat:0 }}px">{{ tag }}</span></a>
+        {% endfor %}
+    </div>
 {% endblock %}

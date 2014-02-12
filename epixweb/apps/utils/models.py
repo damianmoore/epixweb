@@ -7,6 +7,9 @@ class VersionedModel(models.Model):
     created = models.DateTimeField(blank=True)
     updated = models.DateTimeField(blank=True)
 
+    class Meta:
+        abstract = True
+
     def save(self, *args, **kwargs):
         now = datetime.now()
         if not self.created:
