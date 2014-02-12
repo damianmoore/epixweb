@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView
 from django_filters.views import FilterView
 from photologue.models import Gallery
 

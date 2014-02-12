@@ -18,17 +18,30 @@
             {% endfor %}
         </div>
     {% endif %}
+
     {{ object.content.rendered|fetch_external_markdown|strip_heading|safe }}
-    <ul class="sub-pages">
-        {% recursetree sub_projects %}
-            <li>
-                <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
-                {% if not node.is_leaf_node %}
-                    <ul class="children">
-                        {{ children }}
-                    </ul>
-                {% endif %}
-            </li>
-        {% endrecursetree %}
-    </ul>
+
+    {% if sub_projects %}
+        <h2>Sub Pages</h2>
+        <ul class="sub-pages">
+            {% recursetree sub_projects %}
+                <li>
+                    <a href="{{ node.get_absolute_url }}">{{ node.title }}</a>
+                    {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+    {% endif %}
+
+    {% with object.tags.similar_objects as objects %}
+        {% include 'snippets/similar_pages.html' %}
+    {% endwith %}
+
+    {% with 'epixweb.apps.project.Project' as model and 'project-list' as page %}
+        {% include 'snippets/tag_cloud.html' %}
+    {% endwith %}
 {% endblock %}

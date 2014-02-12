@@ -281,14 +281,17 @@ body#home #wrapper {
 #content h2 {
     font-size: 22px;
     font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+    margin-top: 30px;
 }
 #content h3 {
     font-size: 20px;
-    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+    margin-top: 30px;
 }
 #content h4 {
     font-size: 17px;
-    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif
+    font-family: 'tex_gyre_bonumbold_italic', Impact, sans-serif;
+    margin-top: 30px;
 }
 
 #content a, #content a:link, #content a:active, #content a:visited, #content a:hover {

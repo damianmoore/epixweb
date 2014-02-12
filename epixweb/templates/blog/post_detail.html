@@ -8,4 +8,12 @@
     <h1>{{ object.title }}</h1>
     {{ object.created }}
     {{ object.content }}
+
+    {% with object.tags.similar_objects as objects %}
+        {% include 'snippets/similar_pages.html' %}
+    {% endwith %}
+
+    {% with 'epixweb.apps.blog.Post' as model and 'blog-post-list' as page %}
+        {% include 'snippets/tag_cloud.html' %}
+    {% endwith %}
 {% endblock %}

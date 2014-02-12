@@ -1,0 +1,8 @@
+{% if objects %}
+    <h2>Similar Pages</h2>
+    <ul class="similar-pages">
+        {% for similar_object in objects|slice:":3" %}
+        <li><a href="{{ similar_object.get_absolute_url }}">{{ similar_object }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
