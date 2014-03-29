@@ -61,6 +61,7 @@ import sys
 import epixweb as project_module
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(project_module.__file__))
+BASE_DIR = os.path.normpath(os.path.join(PROJECT_DIR, '..'))
 
 PYTHON_BIN = os.path.dirname(sys.executable)
 ve_path = os.path.dirname(os.path.dirname(os.path.dirname(PROJECT_DIR)))
@@ -98,7 +99,7 @@ STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
 MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 #==============================================================================
@@ -106,7 +107,7 @@ STATICFILES_DIRS = (
 #==============================================================================
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS += (
