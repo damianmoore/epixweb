@@ -349,7 +349,7 @@ body#home #wrapper {
     padding: 30px;
     margin: 0 auto 30px auto;
     background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     border-top: 5px solid #bf0;
     border-bottom: 5px solid #bf0;
 }
@@ -403,5 +403,3 @@ body#home #wrapper {
     width: 82px;
     height: 82px;
 }
-
-
