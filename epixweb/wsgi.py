@@ -16,7 +16,7 @@ framework.
 import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-                      "epixweb.settings.production")
+                      "epixweb.settings.local")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
