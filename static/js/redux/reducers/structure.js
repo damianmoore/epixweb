@@ -18,7 +18,7 @@ function loadPosts() {
     },
     {
       type: 'flickr-album',
-      name: 'London Album',
+      name: 'London',
       url:  'https://www.flickr.com/photos/damianmoore/albums/72157649413678702',
       coverImage: 'https://farm7.staticflickr.com/6143/5975987832_a99a863040_z_d.jpg',
     },
@@ -27,8 +27,18 @@ function loadPosts() {
       name: 'Music streaming system'
     },
     {
+      type: 'article',
+      name: 'Laser mapping a home'
+    },
+    {
       type: 'project',
       name: 'Wifi Lamp'
+    },
+    {
+      type: 'flickr-album',
+      name: 'Cornwall',
+      url:  'https://www.flickr.com/photos/damianmoore/albums/72157649006769397',
+      coverImage: 'https://farm4.staticflickr.com/3854/14821031780_4fc2bf3310_z_d.jpg',
     },
     {
       type: 'project',
