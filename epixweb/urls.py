@@ -7,8 +7,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-   # (r'', include('epixweb.apps.')),
-    (r'', include('epixweb.apps.homepage.urls')),
     (r'', include('epixweb.apps.utils.urls')),
     (r'^projects/', include('epixweb.apps.project.urls')),
     (r'^blog/', include('epixweb.apps.blog.urls')),
@@ -16,6 +14,7 @@ urlpatterns = patterns('',
     (r'^taggit_autosuggest/', include('taggit_autosuggest.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
+    (r'', include('epixweb.apps.homepage.urls')),
 )
 
 if settings.DEBUG and settings.MEDIA_ROOT:

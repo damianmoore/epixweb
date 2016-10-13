@@ -1,39 +1,15 @@
-{% load custom_tags %}<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>{% block head_title %}{% endblock %} :: EpixStudios by Damian Moore</title>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-    {% block extrahead %}{% endblock %}
+  <meta charset="utf-8" />
+  <title>EpixStudios by Damian Moore</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
 </head>
 <body>
-
-<div id="container">
-    <div id="header">
-        <img id="bg_image" src="{{ STATIC_URL }}img/bg01.jpg" alt="Background image" />
-        <a href="/"><div id="logo" alt="EpixStudios"><img src="{{ STATIC_URL }}img/logo.svg" /></div></a>
-        <ul class="menu">
-            <li class="projects"><a href="/projects/"><span class="hide">projects</span></a></li>
-            <li class="blog"><a href="/blog/"><span class="hide">blog</span></a></li>
-            <li class="about"><a href="/about/"><span class="hide">about me</span></a></li>
-        </ul>
-    </div>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <div id="social_bar">
-        {% github_feed %}
-        {% flickr_feed %}
-        {% twitter_feed %}
-    </div>
-    <div id="footer">
-        <span id="license">All content, unless otherwise stated, is available to re-use under the terms of the <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative&nbsp;Commons&nbsp;Attribution&#8209;ShareAlike&nbsp;4.0&nbsp;International&nbsp;Licence</a>.</span>
-    </div>
-</div>
-
-{% include 'snippets/piwik_tracking.html' %}
+  <section id="root"></section>
+  <script src="/static/built/commons.chunk.js"></script>
+  <script src="/static/built/app.chunk.js"></script>
+  {# include 'snippets/piwik_tracking.html' #}
 </body>
 </html>

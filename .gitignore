@@ -1,6 +1,7 @@
 epixweb/settings/local.py
 epixweb/settings/local/*
 docs/_build
+node_modules
 
 
 *.py[cod]

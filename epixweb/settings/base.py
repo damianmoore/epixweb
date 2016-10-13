@@ -36,8 +36,8 @@ INSTALLED_APPS = (
     'taggit_templatetags',
     'taggit_autosuggest',
     'photologue',
-    'djcelery',
-    'cacheback',
+    #'djcelery',
+    #'cacheback',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,15 +129,15 @@ AUTHENTICATION_BACKENDS += (
 # Miscellaneous project settings
 #==============================================================================
 
-CACHES = {
-    "default": {
-        "BACKEND": "redis_cache.cache.RedisCache",
-        "LOCATION": "127.0.0.1:6379:1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "redis_cache.client.DefaultClient",
-        }
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "redis_cache.cache.RedisCache",
+#         "LOCATION": "127.0.0.1:6379:1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "redis_cache.client.DefaultClient",
+#         }
+#     }
+# }
 
 LOGGING = {
     'version': 1,
@@ -175,8 +175,8 @@ MARKUP_FIELD_TYPES = (
 
 
 BROKER_URL = 'redis://localhost:6379/0'
-import djcelery
-djcelery.setup_loader()
+#import djcelery
+#djcelery.setup_loader()
 
 TAGGIT_TAGCLOUD_MIN = 10
 TAGGIT_TAGCLOUD_MAX = 20

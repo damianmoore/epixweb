@@ -1,0 +1,9 @@
+.container {
+  margin: 30px auto;
+  &:hover li {
+    opacity: 0.5;
+  }
+  &:hover li:hover {
+    opacity: 1;
+  }
+}
