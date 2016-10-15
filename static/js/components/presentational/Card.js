@@ -9,16 +9,21 @@ import ProjectCard from './cards/ProjectCard'
 
 export default class Card extends React.Component {
   render() {
+    var uri = ''
+    if (this.props.post.type && this.props.post.slug) {
+      uri = '/' + this.props.post.type + '/' + this.props.post.slug + '/'
+    }
+
     var coverImage = ''
     if (this.props.post.coverImage) {
       coverImage = <div className={styles.coverImage} style={{backgroundImage: 'url(' + this.props.post.coverImage + ')'}}></div>
     }
 
     var cardBody = ''
-    if (this.props.post.type == 'article') {
+    if (this.props.post.type == 'blog') {
       cardBody = <BlogPostCard post={this.props.post} />
     }
-    else if (this.props.post.type == 'flickr-album') {
+    else if (this.props.post.type == 'photos') {
       cardBody = <FlickrAlbumCard post={this.props.post} />
     }
     else if (this.props.post.type == 'project') {
@@ -26,7 +31,7 @@ export default class Card extends React.Component {
     }
 
     return (
-      <li className={styles.container}>
+      <li className={styles.container} onClick={() => this.props.onSelectItem(uri)}>
         {coverImage}
         {cardBody}
         {/* <div className={styles.actions}>

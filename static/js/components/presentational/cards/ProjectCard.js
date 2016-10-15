@@ -8,7 +8,7 @@ export default class ProjectCard extends React.Component {
   render() {
     return (
       <div>
-        <i className={'material-icons md-18 ' + styles.cardTypeIcon}>format_paint</i>
+        <i className={'material-icons md-18 ' + styles.cardTypeIcon} title="Project">format_paint</i>
         <h1>{this.props.post.name}</h1>
         <p>...</p>
       </div>

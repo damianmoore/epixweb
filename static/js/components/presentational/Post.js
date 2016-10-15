@@ -2,24 +2,31 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import styles from 'components/Post.scss'
+import modalStyles from 'Modal.scss'
 
 
 export default class Post extends React.Component {
   render() {
-    var posts = []
-    for (var post of this.props.posts) {
-      posts.push(<li>{post.title}</li>)
-    }
+    if (this.props.post) {
+      var post = this.props.post
 
-    return (
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h1>Post</h1>
+      var coverImage = ''
+      if (post.coverImage) {
+        coverImage = <div className={styles.coverImage} style={{backgroundImage: 'url(' + post.coverImage + ')'}}></div>
+      }
+
+      return (
+        <div>
+          <div className={modalStyles.blackout} onClick={this.props.onClickBlackout}></div>
+          <div className={modalStyles.window}>
+            <h1>{post.name}</h1>
+            {coverImage}
+          </div>
         </div>
-        <div className={styles.preview}>
-          <p>content</p>
-        </div>
-      </div>
-    )
+      )
+    }
+    else {
+      return <div></div>
+    }
   }
 }

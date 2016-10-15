@@ -11,14 +11,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (state) => {
-  return {
-    onSelectItem: (sectionURL) => {
-      browserHistory.push(sectionURL)
-    }
-  }
-}
-
-const PostListContainer = connect(mapStateToProps, mapDispatchToProps)(PostList)
+const PostListContainer = connect(mapStateToProps, null)(PostList)
 
 export default PostListContainer

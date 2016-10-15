@@ -13,16 +13,23 @@
 	transition: .8s opacity;
   cursor: zoom-in;
   h1 {
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 14px;
     color: $dark;
-    line-height: 1;
+    line-height: 1.1;
     margin-bottom: 4px;
   }
   h2 {
-    font-size: 12px;
-    color: #aaa;
-    line-height: 1;
+    font-size: 13px;
+    color: #999;
+    line-height: 1.1;
     margin-bottom: 4px;
+  }
+  p {
+    font-size: 12px;
+    color: #999;
+    line-height: 1.2;
+    margin: 12px 0 4px;
   }
   .cardTypeIcon {
     float: right;
@@ -33,6 +40,7 @@
     width: 246px;
     height: 164px;
     background-size: cover;
+    background-position: center;
     margin: -8px -8px 10px -8px;
     border-radius: 3px;
   }

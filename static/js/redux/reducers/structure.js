@@ -1,4 +1,4 @@
-import { GET_POSTS } from 'redux/actions'
+import { RESET_PAGE, GET_POSTS, SET_URI } from 'redux/actions'
 
 
 const initialState = {
@@ -7,6 +7,8 @@ const initialState = {
   filters: {
     orderBy: 'most-recent'
   },
+
+  uri: window.location.pathname,
 }
 
 function loadPosts() {
@@ -14,50 +16,118 @@ function loadPosts() {
   return [
     {
       type: 'project',
-      name: 'Internet radio alarm clock'
+      name: 'Internet radio alarm clock',
+      slug: 'internet-radio',
     },
     {
-      type: 'flickr-album',
+      type: 'photos',
       name: 'London',
+      slug: 'london',
       url:  'https://www.flickr.com/photos/damianmoore/albums/72157649413678702',
       coverImage: 'https://farm7.staticflickr.com/6143/5975987832_a99a863040_z_d.jpg',
     },
     {
       type: 'project',
-      name: 'Music streaming system'
+      name: 'Music streaming system',
+      slug: 'music-streaming-system',
     },
     {
-      type: 'article',
-      name: 'Laser mapping a home'
+      type: 'blog',
+      name: 'Laser mapping a home',
+      slug: 'laser-mapping-home',
+      summary: 'My employer, onefinestay, ran a tech team off-site event recently over a couple of days. I suggested an idea of using laser range finding equipment to map the layout of a home and a group of us got to work on a solution. A full description of what we did is on our tech blog so check it out.',
     },
     {
       type: 'project',
-      name: 'Wifi Lamp'
+      name: 'Wifi Lamp',
+      slug: 'wifi-lamp',
     },
     {
-      type: 'flickr-album',
+      type: 'photos',
+      name: 'USA West Coast',
+      slug: 'usa-west-coast',
+      url:  'https://www.flickr.com/photos/damianmoore/albums/72157649413912751',
+      coverImage: 'https://farm4.staticflickr.com/3916/15019190575_132d755794_z_d.jpg',
+    },
+    {
+      type: 'project',
+      name: 'CNC-milled bamboo picture frame',
+      slug: 'cnc-picture-frame',
+    },
+    {
+      type: 'photos',
       name: 'Cornwall',
+      slug: 'cornwall',
       url:  'https://www.flickr.com/photos/damianmoore/albums/72157649006769397',
       coverImage: 'https://farm4.staticflickr.com/3854/14821031780_4fc2bf3310_z_d.jpg',
     },
     {
       type: 'project',
-      name: 'Picture frame'
+      name: 'Laser-etched plywood sketch inspired by The Grand Budapest Hotel',
+      slug: 'laser-grand-budapest-hotel',
     },
     {
       type: 'project',
-      name: 'Laser etched wood inspired by The Grand Budapest Hotel'
+      name: 'Internet controlled underfloor heating system',
+      slug: 'internet-underfloor-heating',
     },
     {
       type: 'project',
-      name: 'Internet controlled underfloor heating system'
+      name: 'Christmas card 2015',
+      slug: 'christmas-card-2015',
+    },
+    {
+      type: 'project',
+      name: 'Woodland themed placemats',
+      slug: 'woodland-placemats',
+    },
+    {
+      type: 'project',
+      name: 'Adjustable trumpet mute',
+      slug: 'trumpet-mute',
+    },
+    {
+      type: 'project',
+      name: 'Battersea power station painting',
+      slug: 'battersea-power-station-painting',
+    },
+    {
+      type: 'project',
+      name: 'Bluebell jewelery stand',
+      slug: 'bluebell-jewelery-stand',
+    },
+    {
+      type: 'project',
+      name: 'Podium web content management system',
+      slug: 'podium-cms',
+    },
+    {
+      type: 'project',
+      name: 'Courchevel ski apartment rental website',
+      slug: 'courchevel-website',
+    },
+    {
+      type: 'project',
+      name: 'Part Mill — Web-based CNC tool path generator',
+      slug: 'part-mill',
     },
   ]
 }
 
 export default function structure(state = initialState, action) {
+  if (action.type == RESET_PAGE) {
+    var updatedState = Object.assign({}, state)
+    updatedState.showContact = false
+    updatedState.uri = '/'
+    return updatedState
+  }
   if (action.type == GET_POSTS) {
     // TODO: Load filtered posts in
+  }
+  if (action.type == SET_URI) {
+    var updatedState = Object.assign({}, state)
+    updatedState.uri = action.uri
+    return updatedState
   }
 
   return state

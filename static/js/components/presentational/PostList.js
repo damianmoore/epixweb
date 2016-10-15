@@ -15,6 +15,7 @@ export default class PostList extends React.Component {
       fitWidth: true,
       gutter: 30,
       stagger: 100,
+      // initLayout: false,
     })
   }
 
