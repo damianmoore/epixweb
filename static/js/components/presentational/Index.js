@@ -9,6 +9,10 @@ import styles from 'components/Index.scss'
 
 
 export default class Overview extends React.Component {
+  componentDidMount() {
+    this.props.onGetPosts()
+  }
+
   render() {
     return (
       <div className={styles.container}>

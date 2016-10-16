@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import { Router, IndexRoute, Route, browserHistory } from 'react-router'
-import { createStore, combineReducers } from 'redux'
+import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
 
 import IndexApp from 'components/container/IndexApp'
@@ -12,7 +13,14 @@ import ContactContainer from 'components/container/ContactContainer'
 import * as reducers from 'redux/reducers'
 
 
-const store = createStore(combineReducers(reducers), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(
+  combineReducers(reducers),
+  {},
+  compose(
+    applyMiddleware(thunkMiddleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+)
 
 render((
   <Provider store={store}>

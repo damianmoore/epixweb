@@ -1,4 +1,4 @@
-import { RESET_PAGE, GET_POSTS, SET_URI } from 'redux/actions'
+import { RESET_PAGE, GET_POSTS, RECEIVE_POSTS, SET_URI } from 'redux/actions'
 
 
 const initialState = {
@@ -9,6 +9,8 @@ const initialState = {
   },
 
   uri: window.location.pathname,
+
+  loading: false,
 }
 
 function loadPosts() {
@@ -116,18 +118,28 @@ function loadPosts() {
 
 export default function structure(state = initialState, action) {
   if (action.type == RESET_PAGE) {
-    var updatedState = Object.assign({}, state)
-    updatedState.showContact = false
-    updatedState.uri = '/'
-    return updatedState
+    return Object.assign({}, state, {
+      showContact:  false,
+      uri:          '/',
+    })
   }
   if (action.type == GET_POSTS) {
-    // TODO: Load filtered posts in
+    if (!state.loading) {
+      return Object.assign({}, state, {
+        loading: true,
+      })
+    }
+  }
+  if (action.type == RECEIVE_POSTS) {
+    return Object.assign({}, state, {
+      posts:    action.posts,
+      loading:  false,
+    })
   }
   if (action.type == SET_URI) {
-    var updatedState = Object.assign({}, state)
-    updatedState.uri = action.uri
-    return updatedState
+    return Object.assign({}, state, {
+      uri: action.uri,
+    })
   }
 
   return state

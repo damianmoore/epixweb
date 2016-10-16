@@ -26,6 +26,7 @@ INSTALLED_APPS = (
     'epixweb.apps.homepage',
     'epixweb.apps.project',
     'epixweb.apps.blog',
+    'epixweb.apps.api',
 
     'south',
     #'markupfield',
