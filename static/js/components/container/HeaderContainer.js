@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     onClickContact: () => {
       dispatch(setUri('/contact/'))
-    }
+    },
   }
 }
 
