@@ -1,8 +1,6 @@
 from django.http import Http404
-from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
 from django_filters.views import FilterView
-from photologue.models import Gallery
 
 from models import Project, ProjectFilter
 
@@ -32,8 +30,8 @@ class ProjectDetail(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectDetail, self).get_context_data(*args, **kwargs)
         context['sub_projects'] = self.object.get_descendants().filter(status='published')
-        try:
-            context['gallery'] = Gallery.objects.get(title_slug=self.object.slug)
-        except Gallery.DoesNotExist:
-            pass
+        # try:
+        #     context['gallery'] = Gallery.objects.get(title_slug=self.object.slug)
+        # except Gallery.DoesNotExist:
+        #     pass
         return context

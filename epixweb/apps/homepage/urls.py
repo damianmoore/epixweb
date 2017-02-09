@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 
+from views import homepage
 
-urlpatterns = patterns('epixweb.apps.homepage.views',
-    url(r'', 'homepage', name='homepage'),
-)
+urlpatterns = [
+    url(r'', homepage, name='homepage'),
+]

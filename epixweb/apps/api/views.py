@@ -111,7 +111,7 @@ def posts(request):
         },
     ]
     # sleep(4)
-    return HttpResponse(json.dumps(data), mimetype='application/json')
+    return HttpResponse(json.dumps(data), content_type='application/json')
 
     # data = []
     # for post in Post.objects.filter(status='published').order_by('-created'):
@@ -126,4 +126,4 @@ def posts(request):
     #         'summary': summary,
     #     })
 
-    # return HttpResponse(json.dumps(data), mimetype='application/json')
+    # return HttpResponse(json.dumps(data), content_type='application/json')

@@ -1,8 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 import django_filters
+from filer.fields.image import FilerImageField
 from markupfield.fields import MarkupField
-from photologue.models import Photo
 from mptt.models import MPTTModel, TreeForeignKey
 from taggit_autosuggest.managers import TaggableManager
 
@@ -20,7 +20,7 @@ class Project(MPTTModel, VersionedModel):
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=20, choices=PROJECT_STATUSES, default=PROJECT_STATUSES[0][0])
     content = MarkupField(default_markup_type='markdown')
-    photo = models.ForeignKey(Photo, null=True, blank=True)
+    photo = FilerImageField(null=True, blank=True, related_name="project")
     github_uri = models.CharField(max_length=100, blank=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
     tags = TaggableManager(blank=True)
@@ -42,4 +42,4 @@ class ProjectFilter(django_filters.FilterSet):
 
     class Meta:
         model = Project
-        fields = ['slug', 'tags__name',]
+        fields = ['slug', 'tags__name', ]

@@ -1,9 +1,9 @@
-{% load taggit_extras %}
+{# load taggit_extras #}
 
 <h2>Tags</h2>
 <div class="tag-cloud">
-    {% get_tagcloud as tags for model %}
-    {% for tag in tags %}
+    {# get_tagcloud as tags for model #}
+    {# for tag in tags #}
         <a href="{% url page %}?tags__name={{ tag }}"><span class="tag" style="font-size: {{ tag.weight|floatformat:0 }}px">{{ tag }}</span></a>
-    {% endfor %}
+    {# endfor #}
 </div>

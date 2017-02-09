@@ -1,6 +1,8 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+
+from views import posts
 
 
-urlpatterns = patterns('epixweb.apps.api.views',
-    url(r'posts', 'posts', name='posts'),
-)
+urlpatterns = [
+    url(r'posts', posts, name='posts'),
+]

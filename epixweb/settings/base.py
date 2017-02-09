@@ -2,12 +2,11 @@
 # Import global settings to make it easier to extend settings.
 from django.conf.global_settings import *   # pylint: disable=W0614,W0401
 
-#==============================================================================
+# ==============================================================================
 # Generic Django project settings
-#==============================================================================
+# ==============================================================================
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
 TIME_ZONE = 'Europe/London'
@@ -28,17 +27,18 @@ INSTALLED_APPS = (
     'epixweb.apps.blog',
     'epixweb.apps.api',
 
-    'south',
+    #'cacheback',
+    #'djcelery',
+    'easy_thumbnails',
+    'filer',
     #'markupfield',
     'mptt',
     'mptt_tree_editor',
-    'tagging',
+    # 'south',
+    # 'tagging',
     'taggit',
-    'taggit_templatetags',
+    # 'taggit_templatetags',
     'taggit_autosuggest',
-    'photologue',
-    #'djcelery',
-    #'cacheback',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,13 +46,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
 
-#==============================================================================
+# ==============================================================================
 # Calculation of directories relative to the project module location
-#==============================================================================
+# ==============================================================================
 
 import os
 import sys
@@ -80,55 +81,63 @@ else:
 if not os.path.exists(VAR_ROOT):
     os.mkdir(VAR_ROOT)
 
-#==============================================================================
+# ==============================================================================
 # Project URLS and media settings
-#==============================================================================
+# ==============================================================================
 
 ROOT_URLCONF = 'epixweb.urls'
+
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
 
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/'
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/uploads/'
-
-STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
-MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-#==============================================================================
+# ==============================================================================
 # Templates
-#==============================================================================
+# ==============================================================================
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-TEMPLATE_CONTEXT_PROCESSORS += (
-    'django.core.context_processors.request',
-)
 
-#==============================================================================
+# ==============================================================================
 # Middleware
-#==============================================================================
+# ==============================================================================
 
 MIDDLEWARE_CLASSES += (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-#==============================================================================
+# ==============================================================================
 # Auth / security
-#==============================================================================
+# ==============================================================================
 
 AUTHENTICATION_BACKENDS += (
 )
 
-#==============================================================================
+# ==============================================================================
 # Miscellaneous project settings
-#==============================================================================
+# ==============================================================================
 
 # CACHES = {
 #     "default": {
@@ -164,9 +173,9 @@ LOGGING = {
 }
 
 
-#==============================================================================
+# ==============================================================================
 # Third party app settings
-#==============================================================================
+# ==============================================================================
 
 import markdown
 MARKUP_FIELD_TYPES = (
@@ -181,3 +190,5 @@ BROKER_URL = 'redis://localhost:6379/0'
 
 TAGGIT_TAGCLOUD_MIN = 10
 TAGGIT_TAGCLOUD_MAX = 20
+
+THUMBNAIL_HIGH_RESOLUTION = True

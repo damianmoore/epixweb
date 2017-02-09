@@ -1,8 +1,8 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 import django_filters
+from filer.fields.image import FilerImageField
 from markupfield.fields import MarkupField
-from photologue.models import Photo
 from taggit_autosuggest.managers import TaggableManager
 
 from epixweb.apps.utils.models import VersionedModel
@@ -13,12 +13,13 @@ POST_STATUSES = (
     ('published', 'Published'),
 )
 
+
 class Post(VersionedModel):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=20, choices=POST_STATUSES, default=POST_STATUSES[0][0])
     content = MarkupField(default_markup_type='markdown')
-    photo = models.ForeignKey(Photo, null=True, blank=True)
+    photo = FilerImageField(null=True, blank=True, related_name="post")
     tags = TaggableManager(blank=True)
 
     def __unicode__(self):
@@ -33,4 +34,4 @@ class PostFilter(django_filters.FilterSet):
 
     class Meta:
         model = Post
-        fields = ['slug', 'tags__name',]
+        fields = ['slug', 'tags__name', ]
