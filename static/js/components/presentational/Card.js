@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import styles from 'components/Card.scss'
+
 import BlogPostCard from './cards/BlogPostCard'
 import FlickrAlbumCard from './cards/FlickrAlbumCard'
 import ProjectCard from './cards/ProjectCard'
@@ -31,14 +32,17 @@ export default class Card extends React.Component {
     }
 
     return (
-      <li className={styles.container} onClick={() => this.props.onSelectItem(uri)}>
-        {coverImage}
-        {cardBody}
-        {/* <div className={styles.actions}>
-          <i className="material-icons md-24">star_border</i>
-          <i className="material-icons md-18">share</i>
-        </div> */}
-      </li>
+      <Link to={`${uri}`}>
+        <li className={styles.container}>
+        {/* <li className={styles.container} onClick={() => this.props.onSelectItem(uri)}> */}
+          {coverImage}
+          {cardBody}
+          {/* <div className={styles.actions}>
+            <i className="material-icons md-24">star_border</i>
+            <i className="material-icons md-18">share</i>
+          </div> */}
+        </li>
+      </Link>
     )
   }
 }

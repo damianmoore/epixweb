@@ -1,6 +1,7 @@
 import React from 'react'
 
 import HeaderContainer from 'components/container/HeaderContainer'
+import IndexContainer from 'components/container/IndexContainer'
 
 import styles from 'components/IndexApp.scss'
 
@@ -8,9 +9,9 @@ import styles from 'components/IndexApp.scss'
 export default class IndexApp extends React.Component {
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <HeaderContainer />
-        {this.props.children}
+        <IndexContainer params={this.props.match.params} />
       </div>
     )
   }

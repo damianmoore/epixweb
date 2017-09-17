@@ -5,8 +5,10 @@ import json
 from time import sleep
 
 from django.http import HttpResponse
+import markdown
 
 from epixweb.apps.blog.models import Post
+from epixweb.apps.photo.models import FlickrGallery
 from epixweb.apps.utils.text import strip_tags
 
 
@@ -18,7 +20,7 @@ def posts(request):
             'slug': 'internet-radio',
         },
         {
-            'type': 'photos',
+            'type': 'flickr-album',
             'name': 'London',
             'slug': 'london',
             'url':  'https://www.flickr.com/photos/damianmoore/albums/72157649413678702',
@@ -111,19 +113,53 @@ def posts(request):
         },
     ]
     # sleep(4)
+    # return HttpResponse(json.dumps(data), content_type='application/json')
+
+    data = []
+
+    for gallery in FlickrGallery.objects.all().order_by('-created'):
+        photos = []
+        for photo in gallery.photos.all():
+            sizes = json.loads(photo.sizes)
+            photos.append({
+                'src': sizes['Medium 640'],
+                'width': 640,
+                'height': int(float(640) / photo.aspect_ratio),
+                'aspectRatio': photo.aspect_ratio,
+                'lightboxImage': {
+                    'src': sizes['Large'],
+                },
+            })
+        data.append({
+            'type': 'photos',
+            'name': gallery.title,
+            'slug': gallery.slug,
+            'coverImage': photos[0]['src'],
+            'photos': photos,
+        })
+
+    for post in Post.objects.filter(status='published').order_by('-created'):
+        # import pdb; pdb.set_trace()
+        summary = strip_tags(markdown.markdown(post.content))[:300]
+        if len(summary) == 300:
+            summary = u' '.join(summary.split(' ')[:-1]) + u'…'
+        data.append({
+            'type': 'blog',
+            'name': post.title,
+            'slug': post.slug,
+            'summary': summary,
+        })
+
     return HttpResponse(json.dumps(data), content_type='application/json')
 
-    # data = []
-    # for post in Post.objects.filter(status='published').order_by('-created'):
-    #     # import pdb; pdb.set_trace()
-    #     summary = strip_tags(post.content.rendered)[:300]
-    #     if len(summary) == 300:
-    #         summary = u' '.join(summary.split(' ')[:-1]) + u'…'
-    #     data.append({
-    #         'type': 'blog',
-    #         'name': post.title,
-    #         'slug': post.slug,
-    #         'summary': summary,
-    #     })
 
-    # return HttpResponse(json.dumps(data), content_type='application/json')
+def blog(request, slug):
+    post = Post.objects.get(slug=slug)
+    data = {
+        'name':     post.title,
+        'content':  markdown.markdown(post.content),
+        'created':  post.created.isoformat(),
+        'type':     'blog',
+        'slug':     post.slug,
+    }
+    return HttpResponse(json.dumps(data), content_type='application/json')

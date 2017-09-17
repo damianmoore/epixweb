@@ -13,20 +13,32 @@
 }
 
 .window {
-  width: 800px;
-  height: 600px;
+  width: 90%;
+  height: 90%;
   position: fixed;
-  top: 30px;
-  left: 30px;
+  overflow-y: scroll;
+  top: 5%;
+  left: 5%;
   background: #fff;
   border-radius: 4px;
   z-index: 20;
-  padding: 10px;
   color: $dark;
+}
+
+.windowDark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  padding: 20px;
+  color: $light;
   h1 {
     font-weight: 700;
     font-size: 18px;
-    color: $dark;
+    color: $light;
     line-height: 1.1;
     margin-bottom: 4px;
   }

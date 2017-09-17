@@ -5,6 +5,12 @@ import { getPosts } from 'redux/actions'
 import Index from 'components/presentational/Index'
 
 
+const mapStateToProps = (state) => {
+  return {
+    posts:    state.structure.posts,
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetPosts: () => {
@@ -13,6 +19,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const IndexContainer = connect(null, mapDispatchToProps)(Index)
+const IndexContainer = connect(mapStateToProps, mapDispatchToProps)(Index)
 
 export default IndexContainer

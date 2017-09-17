@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'epixweb.apps.homepage',
     'epixweb.apps.project',
     'epixweb.apps.blog',
+    'epixweb.apps.photo',
     'epixweb.apps.api',
 
     #'cacheback',
@@ -34,6 +35,7 @@ INSTALLED_APPS = (
     #'markupfield',
     'mptt',
     'mptt_tree_editor',
+    'pagedown',
     # 'south',
     # 'tagging',
     'taggit',
@@ -82,7 +84,7 @@ if not os.path.exists(VAR_ROOT):
     os.mkdir(VAR_ROOT)
 
 # ==============================================================================
-# Project URLS and media settings
+# Project URLs and media settings
 # ==============================================================================
 
 ROOT_URLCONF = 'epixweb.urls'
@@ -96,6 +98,10 @@ MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
 LOGIN_URL = '/login/'
 LOGOUT_URL = '/logout/'
 LOGIN_REDIRECT_URL = '/'
+
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 
 # ==============================================================================
 # Templates
@@ -192,3 +198,6 @@ TAGGIT_TAGCLOUD_MIN = 10
 TAGGIT_TAGCLOUD_MAX = 20
 
 THUMBNAIL_HIGH_RESOLUTION = True
+
+FLICKR_API_KEY = 'e31012aba69731078487088ef674003e'
+FLICKR_API_SECRET = 'f452697ce4f6499d'

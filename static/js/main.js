@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import { Router, IndexRoute, Route, browserHistory } from 'react-router'
+import { BrowserRouter as Router, Route, Link, browser } from 'react-router-dom'
 import thunkMiddleware from 'redux-thunk'
 import { Provider } from 'react-redux'
 
@@ -24,14 +24,12 @@ const store = createStore(
 
 render((
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={IndexApp}>
-        <IndexRoute component={IndexContainer} />
-        <Route path="blog/*" component={IndexContainer} />
-        <Route path="photos/*" component={IndexContainer} />
-        <Route path="project/*" component={IndexContainer} />
-        <Route path="contact" component={IndexContainer} />
-      </Route>
+    <Router>
+      <div>
+        <Route exact path="/" component={IndexApp}/>
+        <Route path="/contact/" component={IndexApp} />
+        <Route path="/:postType/:slug/" component={IndexApp} />
+      </div>
     </Router>
   </Provider>
 ), document.getElementById('root'))

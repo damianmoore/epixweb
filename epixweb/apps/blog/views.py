@@ -11,5 +11,6 @@ class PostList(FilterView):
     queryset = Post.objects.filter(status='published').order_by('-created')
     paginate_by = 10
 
+
 class PostDetail(DetailView):
     model = Post

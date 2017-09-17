@@ -1,4 +1,4 @@
-import { RESET_PAGE, GET_POSTS, RECEIVE_POSTS, SET_URI } from 'redux/actions'
+import { RESET_PAGE, GET_POSTS, RECEIVE_POSTS, SET_URI, RECEIVE_POST } from 'redux/actions'
 
 
 const initialState = {
@@ -36,6 +36,12 @@ export default function structure(state = initialState, action) {
   if (action.type == SET_URI) {
     return Object.assign({}, state, {
       uri: action.uri,
+    })
+  }
+  if (action.type == RECEIVE_POST) {
+    return Object.assign({}, state, {
+      post:    action.post,
+      loading:  false,
     })
   }
 

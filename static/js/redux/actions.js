@@ -1,10 +1,8 @@
-import { browserHistory } from 'react-router'
 import fetch from 'isomorphic-fetch'
 
 
 export const RESET_PAGE = 'RESET_PAGE'
 export const resetPage = () => {
-  browserHistory.push('/')
   return {
     type:     RESET_PAGE,
   }
@@ -31,11 +29,22 @@ export const receivePosts = (posts) => {
   }
 }
 
-export const SET_URI = 'SET_URI'
-export const setUri = (uri) => {
-  browserHistory.push(uri)
+export const GET_POST = 'GET_POST'
+export const getPost = (type, slug) => {
+  return dispatch => {
+    return fetch('/api/' + type + '/' + slug + '/')
+      .then(response => response.json())
+      .then(json => dispatch(receivePost(json)))
+  }
   return {
-    type:     SET_URI,
-    uri:      uri,
+    type:     GET_POST,
+  }
+}
+
+export const RECEIVE_POST = 'RECEIVE_POST'
+export const receivePost = (post) => {
+  return {
+    type:     RECEIVE_POST,
+    post:     post,
   }
 }

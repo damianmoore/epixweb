@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
-// import Masonry from 'masonry-layout'
 import Masonry from 'react-masonry-component'
 
 import CardContainer from 'components/container/CardContainer'
@@ -19,19 +18,17 @@ var masonryOptions = {
 export default class PostList extends React.Component {
 
   render() {
-    var posts = []
+    let posts = []
     if (this.props.posts) {
-      for (var post of this.props.posts) {
-        posts.push(<CardContainer key={post.name} post={post} />)
-      }
+      posts = this.props.posts.map(function(post) {
+        return <CardContainer key={`${post.type}/${post.slug}`} post={post} />
+      })
 
       return (
         <Masonry
-          className={styles.container} // default ''
-          elementType={'ul'} // default 'div'
-          options={masonryOptions} // default {}
-          disableImagesLoaded={false} // default false
-          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+          className={styles.container}
+          elementType={'ul'}
+          options={masonryOptions}
         >
           {posts}
         </Masonry>

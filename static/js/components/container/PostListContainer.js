@@ -1,5 +1,5 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import PostList from 'components/presentational/PostList'
