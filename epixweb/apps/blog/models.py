@@ -18,7 +18,7 @@ class Post(VersionedModel):
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=20, choices=POST_STATUSES, default=POST_STATUSES[0][0])
     content = models.TextField()
-    photo = FilerImageField(null=True, blank=True, related_name="post")
+    photo = FilerImageField(null=True, blank=True, on_delete=models.SET_NULL, related_name="post")
     tags = TaggableManager(blank=True)
 
     def __unicode__(self):

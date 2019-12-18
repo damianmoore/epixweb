@@ -6,7 +6,9 @@ from django.conf.global_settings import *   # pylint: disable=W0614,W0401
 # Generic Django project settings
 # ==============================================================================
 
-DEBUG = True
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 TIME_ZONE = 'Europe/London'
@@ -90,6 +92,7 @@ if not os.path.exists(VAR_ROOT):
 ROOT_URLCONF = 'epixweb.urls'
 
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/uploads/'

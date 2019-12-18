@@ -7,3 +7,10 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+}
