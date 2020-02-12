@@ -9,6 +9,3 @@ restart:
 
 shell:
 	docker-compose exec epixweb bash
-
-build-js:
-	npm run build
