@@ -39,8 +39,8 @@ WORKDIR /srv/frontend
 COPY frontend/package.json /srv/frontend/package.json
 RUN npm install
 
-COPY requirements.pip /srv/requirements.pip
-RUN pip install -r /srv/requirements.pip
+COPY requirements.txt /srv/requirements.txt
+RUN pip install -r /srv/requirements.txt
 
 COPY epixweb /srv/epixweb
 COPY system /srv/system
