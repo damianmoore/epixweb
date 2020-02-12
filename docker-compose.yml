@@ -1,0 +1,44 @@
+version: '2'
+services:
+  mysql:
+    container_name: epixweb-mysql
+    image: mysql:5.7
+    volumes:
+     - ./volumes/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: epixweb
+    ports:
+     - "3306:3306"
+
+  epixweb:
+    container_name: epixweb
+    build: .
+    ports:
+     - "8000:80"
+     - "8001:8000"
+     - "8002:8001"
+     - "3000:3000"
+     - "3001:3001"
+    links:
+     - mysql
+    volumes:
+      - ./epixweb:/srv/epixweb
+      - ./frontend/components:/srv/frontend/components
+      - ./frontend/helpers:/srv/frontend/helpers
+      - ./frontend/pages:/srv/frontend/pages
+      - ./frontend/utils:/srv/frontend/utils
+      # - ./frontend/package.json:/srv/frontend/package.json
+      # - ./frontend/package-lock.json:/srv/frontend/package-lock.json
+      - ./static:/srv/static
+      - ./system:/srv/system
+      - ./templates:/srv/templates
+      - ./manage.py:/srv/manage.py
+    environment:
+      ENV: loc
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: epixweb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    depends_on:
+      - mysql
