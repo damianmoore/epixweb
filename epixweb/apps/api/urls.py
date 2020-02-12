@@ -1,10 +1,10 @@
 from django.conf.urls import url
 
-from views import posts, blog
+from .views import posts, blog
 
 
 urlpatterns = [
-    url(r'^posts/$', posts, name='posts'),
-    url(r'^blog/(?P<slug>[-_\w/]+)/$', blog, name='blog'),
-    # url(r'^gallery/(?P<slug>[-_\w/]+)/$', posts, name='gallery'),
+    url('posts/', posts, name='posts'),
+    url('blog/<slug:slug>/', blog, name='blog'),
+    # url('gallery/<slug:slug>/', posts, name='gallery'),
 ]

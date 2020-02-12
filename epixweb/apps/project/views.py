@@ -2,14 +2,14 @@ from django.http import Http404
 from django.views.generic import DetailView
 from django_filters.views import FilterView
 
-from models import Project, ProjectFilter
+from .models import Project#, ProjectFilter
 
 
-class ProjectList(FilterView):
-    model = Project
-    filterset_class = ProjectFilter
-    queryset = Project.objects.filter(status='published', level=0)
-    paginate_by = 10
+# class ProjectList(FilterView):
+#     model = Project
+#     filterset_class = ProjectFilter
+#     queryset = Project.objects.filter(status='published', level=0)
+#     paginate_by = 10
 
 
 class ProjectDetail(DetailView):

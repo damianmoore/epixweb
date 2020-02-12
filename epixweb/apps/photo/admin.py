@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from models import FlickrGallery, FlickrGalleryImage
+from .models import FlickrGallery, FlickrGalleryImage
 
 
 class FlickrGalleryAdmin(admin.ModelAdmin):

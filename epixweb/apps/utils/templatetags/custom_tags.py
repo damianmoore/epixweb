@@ -18,7 +18,7 @@ register = template.Library()
 
 # @cacheback(lifetime=1200)  # 20 mins
 def get_latest_tweets(limit=10):
-    print 'FETCHING TWEETS'
+    print('FETCHING TWEETS')
     t = Twitter(
         auth=OAuth(
             settings.TWITTER_ACCESS_TOKEN,
@@ -43,7 +43,7 @@ def twitter_feed():
 
 # @cacheback(lifetime=3600)  # 60 mins
 def get_latest_github(limit=10):
-    print 'FETCHING GITHUB'
+    print('FETCHING GITHUB')
     username = 'damianmoore'
     url = 'https://github.com/{}.atom'.format(username)
     items = []
@@ -66,7 +66,7 @@ def github_feed():
 
 # @cacheback(lifetime=3600)  # 60 mins
 def get_latest_flickr(limit=12):
-    print 'FETCHING FLICKR'
+    print('FETCHING FLICKR')
     user_id = '55290748@N08'
     url = 'http://api.flickr.com/services/feeds/photos_public.gne?id={}'.format(user_id)
     items = []

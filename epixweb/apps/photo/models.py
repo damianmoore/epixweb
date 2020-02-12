@@ -67,7 +67,7 @@ class FlickrGallery(VersionedModel):
 
 
 class FlickrGalleryImage(VersionedModel):
-    gallery = models.ForeignKey('FlickrGallery', related_name='photos')
+    gallery = models.ForeignKey('FlickrGallery', related_name='photos', on_delete=models.CASCADE)
     flickr_photo_id = models.CharField(max_length=25)
     title = models.CharField(max_length=200, blank=True)
     index = models.PositiveSmallIntegerField()

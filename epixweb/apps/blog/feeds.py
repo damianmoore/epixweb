@@ -1,6 +1,6 @@
 from django.contrib.syndication.views import Feed
 
-from models import Post
+from .models import Post
 
 
 class BlogFeed(Feed):

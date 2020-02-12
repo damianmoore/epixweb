@@ -15,7 +15,7 @@ framework.
 """
 import os
 
-env = os.environ.get('SERVER_ENV', 'loc')
+env = os.environ.get('ENV', 'loc')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'epixweb.settings.{}'.format(env))
 
 # This application object is used by any WSGI server configured to use this

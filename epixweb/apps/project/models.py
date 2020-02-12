@@ -1,6 +1,5 @@
-from django.core.urlresolvers import reverse
 from django.db import models
-import django_filters
+from django.urls import reverse
 from filer.fields.image import FilerImageField
 from mptt.models import MPTTModel, TreeForeignKey
 from taggit_autosuggest.managers import TaggableManager
@@ -19,9 +18,9 @@ class Project(MPTTModel, VersionedModel):
     slug = models.SlugField(max_length=50)
     status = models.CharField(max_length=20, choices=PROJECT_STATUSES, default=PROJECT_STATUSES[0][0])
     content = models.TextField()
-    photo = FilerImageField(null=True, blank=True, related_name="project")
+    photo = FilerImageField(null=True, blank=True, related_name="project", on_delete=models.SET_NULL)
     github_uri = models.CharField(max_length=100, blank=True)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.SET_NULL)
     tags = TaggableManager(blank=True)
 
     def __unicode__(self):
@@ -36,9 +35,9 @@ class Project(MPTTModel, VersionedModel):
         return reverse('project-detail', kwargs={'slug': slug})
 
 
-class ProjectFilter(django_filters.FilterSet):
-    slug = django_filters.CharFilter(lookup_type='contains')
+# class ProjectFilter(django_filters.FilterSet):
+#     slug = django_filters.CharFilter(lookup_type='contains')
 
-    class Meta:
-        model = Project
-        fields = ['slug', 'tags__name', ]
+#     class Meta:
+#         model = Project
+#         fields = ['slug', 'tags__name', ]

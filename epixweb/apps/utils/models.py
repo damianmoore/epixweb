@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
-
 from django.db import models
+from django.utils import timezone
 
 
 class VersionedModel(models.Model):
@@ -11,7 +10,7 @@ class VersionedModel(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        now = datetime.now()
+        now = timezone.now()
         if not self.created:
             self.created = now
         self.updated = now

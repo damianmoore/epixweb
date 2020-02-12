@@ -1,11 +1,11 @@
-from django.conf.urls import url
+from django.urls import path
 
-from feeds import ProjectFeed
-from views import ProjectList, ProjectDetail
+from .feeds import ProjectFeed
+from .views import ProjectDetail  # , ProjectList
 
 
 urlpatterns = [
-    url('^$', ProjectList.as_view(), name='project-list'),
-    url(r'^feed/$', ProjectFeed(), name='project-feed'),
-    url(r'^(?P<slug>[-_\w/]+)/$', ProjectDetail.as_view(), name='project-detail'),
+    # path('^$', ProjectList.as_view(), name='project-list'),
+    path('feed/', ProjectFeed(), name='project-feed'),
+    path('<slug:slug>/', ProjectDetail.as_view(), name='project-detail'),
 ]

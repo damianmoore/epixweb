@@ -1,7 +1,7 @@
-from django.conf.urls import include, url
+from django.urls import path
 
-from views import homepage
+from .views import homepage
 
 urlpatterns = [
-    url(r'', homepage, name='homepage'),
+    path(r'', homepage, name='homepage'),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView
 from django_filters.views import FilterView
 
-from models import Post, PostFilter
+from .models import Post, PostFilter
 
 
 class PostList(FilterView):

@@ -1,6 +1,6 @@
 from django.contrib.syndication.views import Feed
 
-from models import Project
+from .models import Project
 
 
 class ProjectFeed(Feed):

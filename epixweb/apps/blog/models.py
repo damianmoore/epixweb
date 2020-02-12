@@ -1,5 +1,5 @@
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.urls import reverse
 import django_filters
 from filer.fields.image import FilerImageField
 from taggit_autosuggest.managers import TaggableManager
