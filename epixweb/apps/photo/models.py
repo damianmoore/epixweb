@@ -18,7 +18,7 @@ class FlickrGallery(VersionedModel):
     class Meta:
         verbose_name_plural = 'Flickr galleries'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     @property

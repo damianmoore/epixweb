@@ -97,6 +97,10 @@ const Layout = props => (
         margin: 0 0 16px 16px;
         padding: 0 0 0 20px;
       }
+
+      a {
+        outline: 0;
+      }
       
       pre {
         padding: 12px 16px;

@@ -4,14 +4,30 @@ import BlogPostCard from './cards/BlogPostCard'
 
 
 const Card = (props) => {
-  let uri = ''
+  let uriHref = ''
+  let uriAs = ''
   if (props.post.type && props.post.slug) {
-    uri = '/' + props.post.type + '/' + props.post.slug + '/'
+    uriHref = '/' + props.post.type + '/[slug]/'
+    uriAs = '/' + props.post.type + '/' + props.post.slug + '/'
   }
 
   let coverImage = ''
   if (props.post.coverImage) {
-    coverImage = <div className={styles.coverImage} style={{backgroundImage: 'url(' + props.post.coverImage + ')'}}></div>
+    coverImage = (
+      <>
+        <div className="coverImage" style={{backgroundImage: 'url(' + props.post.coverImage + ')'}}></div>
+        <style jsx>{`
+          .coverImage {
+            width: 246px;
+            height: 164px;
+            background-size: cover;
+            background-position: center;
+            margin: -8px -8px 10px -8px;
+            border-radius: 3px;
+          }
+        `}</style>
+      </>
+    )
   }
 
   let cardBody = ''
@@ -27,7 +43,7 @@ const Card = (props) => {
 
   return (
     <>
-      <Link href={uri}>
+      <Link href={uriHref} as={uriAs}>
         <a>
           <li className="container">
             {coverImage}

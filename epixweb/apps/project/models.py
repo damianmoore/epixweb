@@ -23,7 +23,7 @@ class Project(MPTTModel, VersionedModel):
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.SET_NULL)
     tags = TaggableManager(blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):

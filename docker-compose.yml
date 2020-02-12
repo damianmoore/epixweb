@@ -28,6 +28,7 @@ services:
       - ./frontend/helpers:/srv/frontend/helpers
       - ./frontend/pages:/srv/frontend/pages
       - ./frontend/utils:/srv/frontend/utils
+      - ./volumes/uploads:/srv/epixweb/var/uploads
       # - ./frontend/package.json:/srv/frontend/package.json
       # - ./frontend/package-lock.json:/srv/frontend/package-lock.json
       - ./static:/srv/static

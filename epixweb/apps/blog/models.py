@@ -21,7 +21,7 @@ class Post(VersionedModel):
     photo = FilerImageField(null=True, blank=True, on_delete=models.SET_NULL, related_name="post")
     tags = TaggableManager(blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
