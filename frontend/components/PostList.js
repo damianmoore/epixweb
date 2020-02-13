@@ -13,6 +13,7 @@ const PostList = (props) => {
   function handleUpdate() {
     // passing empty object re-renders the component
     setState({})
+    document.getElementById('masonryContainer').style.marginTop = 0
   }
   
   if (props.posts) {
@@ -57,7 +58,7 @@ const PostList = (props) => {
 
     return (
       <>
-        <div className="masonryContainer">
+        <div id="masonryContainer">
           <Masonry
             className={className}
             elementType={'ul'}
@@ -69,8 +70,10 @@ const PostList = (props) => {
 
         {styles}
         <style jsx>{`
-          .masonryContainer {
+          #masonryContainer {
             padding: 30px;
+            margin-top: 100vh;
+            transition: 500ms all;
           }
         `}</style>
       </>

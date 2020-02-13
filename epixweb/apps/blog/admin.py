@@ -11,6 +11,7 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'slug', 'status')
     ordering = ('-created',)
     prepopulated_fields = {"slug": ("title",)}
+    exclude = ('created', 'updated')
 
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},

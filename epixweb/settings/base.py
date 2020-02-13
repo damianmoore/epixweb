@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     #'markupfield',
     'mptt',
     'mptt_tree_editor',
-    'pagedown',
+    'pagedown.apps.PagedownConfig',
     # 'south',
     # 'tagging',
     'taggit',
@@ -50,7 +50,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )

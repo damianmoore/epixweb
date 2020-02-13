@@ -2,8 +2,9 @@ import { useRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import marked from 'marked'
 
-import Layout from '../../components/MyLayout'
+import DocumentLayout from '../../components/DocumentLayout'
 import GalleryImages from '../../components/GalleryImages'
+import {fuzzyDate, longDate} from '../../utils/date'
 
 
 const BlogPost = props => {
@@ -21,26 +22,17 @@ const BlogPost = props => {
   })
 
   return (
-    <Layout title={props.post.name}>
-      <div className="container">
-        <div className="content">
-          <h1>{props.post.name}</h1>
-          {contentElements}
-        </div>
-      </div>
+    <DocumentLayout title={props.post.name}>
+      <h1>{props.post.name}</h1>
+      <div className="date">{longDate(props.post.created)} ({fuzzyDate(props.post.created)})</div>
+      {contentElements}
       <style jsx>{`
-        .container {
-          max-width: 900px;
-          margin: 30px auto;
-          padding: 30px;
-        }
-        .content {
-          background: #fff;
-          padding: 30px 30px 14px 30px;
-          border-radius: 4px;
+        .date {
+          margin: 16px 0 48px;
+          font-weight: 700;
         }
       `}</style>
-    </Layout>
+    </DocumentLayout>
   )
 }
 

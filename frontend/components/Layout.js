@@ -8,8 +8,8 @@ const Layout = props => (
     <Head>
       <title>{props.title ? props.title + ' | EpixStudios by Damian Moore' : 'EpixStudios by Damian Moore'}</title>
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=block" rel="stylesheet" />
-      {/* <link rel="icon" href="/static/images/cropped-favicon-32x32.png" sizes="32x32" />
-      <link rel="icon" href="/static/images/cropped-favicon-192x192.png" sizes="192x192" /> */}
+      <link rel="icon" href="/static/img/favicon-32x32.png" sizes="32x32" />
+      <link rel="icon" href="/static/img/favicon-192x192.png" sizes="192x192" />
       <meta name="description" content={props.description} />
       <meta name="viewport" content="width=device-width" />
       <meta property="og:locale" content="en_GB" />
@@ -31,7 +31,7 @@ const Layout = props => (
       {props.children}
     </div>
   
-    {/* <Analytics /> */}
+    <Analytics />
 
     <style jsx global>{`
       /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}td:not([align]),th:not([align]){text-align:left}
@@ -133,31 +133,6 @@ const Layout = props => (
         overflow-x: hidden;
         overflow-y: scroll;
       }
-
-      .masonry,
-      .masonry .masonry-brick {
-        -webkit-transition-duration: 0.7s;
-          -moz-transition-duration: 0.7s;
-            -ms-transition-duration: 0.7s;
-            -o-transition-duration: 0.7s;
-                transition-duration: 0.7s;
-      }
-
-      .masonry {
-        -webkit-transition-property: height, width;
-          -moz-transition-property: height, width;
-            -ms-transition-property: height, width;
-            -o-transition-property: height, width;
-                transition-property: height, width;
-      }
-
-      .masonry .masonry-brick {
-        -webkit-transition-property: left, right, top;
-          -moz-transition-property: left, right, top;
-            -ms-transition-property: left, right, top;
-            -o-transition-property: left, right, top;
-                transition-property: left, right, top;
-      } 
     `}</style>
   </div>
 )

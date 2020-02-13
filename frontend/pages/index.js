@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 
-import Layout from '../components/MyLayout'
+import Layout from '../components/Layout'
 import PostList from '../components/PostList'
 
 

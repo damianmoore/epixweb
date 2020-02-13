@@ -5,7 +5,6 @@ RUN apt-get update && \
         curl \
         default-libmysqlclient-dev \
         git \
-        gunicorn \
         libjpeg-dev \
         locales \
         nginx-light \
@@ -29,19 +28,16 @@ RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
                    /tmp/* \
                    /var/tmp/*
 
-# RUN echo "en_GB.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
-# ENV LANG en_GB.UTF-8
-# ENV LANGUAGE en_GB:en
-# ENV LC_ALL en_GB.UTF-8
+# Install Python dependencies
+COPY requirements.txt /srv/requirements.txt
+RUN pip install -r /srv/requirements.txt
 
 # Install Node dependencies
 WORKDIR /srv/frontend
 COPY frontend/package.json /srv/frontend/package.json
 RUN npm install
 
-COPY requirements.txt /srv/requirements.txt
-RUN pip install -r /srv/requirements.txt
-
+# Copy project files
 COPY epixweb /srv/epixweb
 COPY system /srv/system
 COPY static /srv/static
@@ -54,7 +50,7 @@ RUN npm run build
 
 WORKDIR /srv
 
-# Collecti Django static media from apps
+# Collect Django static files from apps
 RUN python manage.py collectstatic --noinput --link
 
 CMD supervisord -c /srv/system/supervisord.conf

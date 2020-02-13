@@ -57,12 +57,16 @@ const Card = (props) => {
           background: #fff;
           color: #000;
           border-radius: 4px;
-          display: block;
           width: 250px;
-          margin-bottom: 30px;
+          margin: 0 30px 30px 0;
           padding: 10px;
           vertical-align: top;
           cursor: pointer;
+          list-style: none;
+          float: left;
+        }
+        a .container {
+          text-decoration: none;
         }
         a {
           transition: 300ms opacity;

@@ -1,13 +1,6 @@
-# This file collects all required third-party applications that are needed
-# to run this project. Later you can install all these apps in a row
-# using pip. Example::
-#
-#     pip install -r requirements.pip
-
 Markdown==3.1.1
 #celery==3.1.8
 Django==2.2.9
-djangocms-admin-style==1.5.0
 #django-cacheback==0.6
 #django-celery==3.1.1
 django-filer==1.6.0
@@ -23,8 +16,9 @@ django-taggit-templatetags==0.2.5
 easy-thumbnails==2.7
 feedparser==5.2.1
 flickrapi==2.4.0
+gunicorn==20.0.4
 mysqlclient==1.4.6
-Pillow==7.0.0
+Pillow-SIMD==7.0.0.post3
 #pylibmc==1.2.3
 pytz==2019.3
 raven==6.10.0
