@@ -45,7 +45,7 @@ def posts(request):
         })
 
     for post in Post.objects.filter(status='published').order_by('-created'):
-        summary = strip_tags(markdown.markdown(post.content))[:300]
+        summary = strip_tags(markdown.markdown(re.sub('(\[!gallery-dir [\S]+\])', '', post.content)))[:300]
         if len(summary) == 300:
             summary = ' '.join(summary.split(' ')[:-1]) + '…'
 

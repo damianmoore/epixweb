@@ -73,14 +73,6 @@ const PostList = (props) => {
             padding: 30px;
           }
         `}</style>
-        <style jsx global>{`
-          .masonryContainer ul:hover li {
-            opacity: 0.8;
-          }
-          .masonryContainer ul:hover li:hover {
-            opacity: 1;
-          }
-        `}</style>
       </>
     )
   }

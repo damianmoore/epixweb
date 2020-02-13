@@ -9,15 +9,14 @@ import GalleryImages from '../../components/GalleryImages'
 const BlogPost = props => {
   const router = useRouter()
 
-  let content = marked(props.post.content)
   let contentComponents = props.post.content.split(/(\[!gallery-images .+?\]\])/)
-  let contentElements = contentComponents.map((el) => {
+  let contentElements = contentComponents.map((el, index) => {
     if (el.startsWith('[!gallery-images ')) {
       let images = JSON.parse(el.match(/\[!gallery-images (.+?\])\]/)[1])
-      return <GalleryImages images={images} />
+      return <GalleryImages images={images} key={index} />
     }
     else {
-      return <div dangerouslySetInnerHTML={{ __html:  marked(el) }} />
+      return <div dangerouslySetInnerHTML={{ __html:  marked(el) }} key={index} />
     }
   })
 
@@ -37,7 +36,7 @@ const BlogPost = props => {
         }
         .content {
           background: #fff;
-          padding: 30px;
+          padding: 30px 30px 14px 30px;
           border-radius: 4px;
         }
       `}</style>

@@ -62,8 +62,13 @@ const Card = (props) => {
           margin-bottom: 30px;
           padding: 10px;
           vertical-align: top;
-          transition: .8s opacity;
           cursor: pointer;
+        }
+        a {
+          transition: 300ms opacity;
+        }
+        a:hover {
+          opacity: 0.9;
         }
       `}</style>
     </>

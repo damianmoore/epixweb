@@ -22,7 +22,20 @@ def gallery_dir(path):
         for component in path.split('/'):
             parent = Folder.objects.get(name=component, parent=parent)
 
-        files = [file.url for file in parent.files]
+        files = []
+        for file in parent.files:
+            files.append({
+                'src': file.url,
+                'srcSet': [
+                    get_thumbnail(file, 500, 999999) + ' 500w',
+                    get_thumbnail(file, 800, 999999) + ' 800w',
+                    get_thumbnail(file, 1024, 999999) + ' 1024w',
+                    get_thumbnail(file, 1600, 999999) + ' 1600w',
+                    get_thumbnail(file, 1920, 999999) + ' 1920w',
+                ],
+                'width': file.width,
+                'height': file.height,
+            })
     except filer.models.foldermodels.Folder.DoesNotExist:
         pass
     return f'[!gallery-images {json.dumps(files)}]'
