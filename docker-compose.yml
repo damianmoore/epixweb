@@ -24,6 +24,7 @@ services:
      - mysql
     volumes:
       - ./epixweb:/srv/epixweb
+      - ./frontend/package.json:/srv/frontend/package.json
       - ./frontend/components:/srv/frontend/components
       - ./frontend/helpers:/srv/frontend/helpers
       - ./frontend/pages:/srv/frontend/pages

@@ -1,7 +1,5 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import json
+import re
 from time import sleep
 
 from django.http import HttpResponse
@@ -10,7 +8,7 @@ import markdown
 from epixweb.apps.blog.models import Post
 from epixweb.apps.photo.models import FlickrGallery
 from epixweb.apps.utils.text import strip_tags
-from epixweb.apps.utils.image import get_thumbnail
+from epixweb.apps.utils.image import get_thumbnail, gallery_dir
 
 
 def posts(request):
@@ -49,7 +47,7 @@ def posts(request):
     for post in Post.objects.filter(status='published').order_by('-created'):
         summary = strip_tags(markdown.markdown(post.content))[:300]
         if len(summary) == 300:
-            summary = u' '.join(summary.split(' ')[:-1]) + u'…'
+            summary = ' '.join(summary.split(' ')[:-1]) + '…'
 
         cover_image = None
         if post.photo:
@@ -73,9 +71,19 @@ def posts(request):
 
 def blog(request, slug):
     post = Post.objects.get(slug=slug)
+    contentElements = []
+    for item in re.split('(\[!gallery-dir [\S]+\])', post.content):
+        if item.startswith('[!gallery-dir '):
+            path = re.match(r'\[!gallery-dir ([\S]+)\]', item).group(1)
+            contentElements.append(gallery_dir(path))
+        else:
+            contentElements.append(item)
+
+    content = ''.join(contentElements)
+
     data = {
         'name':     post.title,
-        'content':  markdown.markdown(post.content),
+        'content':  content,
         'created':  post.created.isoformat(),
         'type':     'blog',
         'slug':     post.slug,

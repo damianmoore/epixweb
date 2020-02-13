@@ -6,7 +6,7 @@ import Analytics from './Analytics'
 const Layout = props => (
   <div>
     <Head>
-      <title>{props.title ? props.title : 'EpixStudios by Damian Moore'}</title>
+      <title>{props.title ? props.title + ' | EpixStudios by Damian Moore' : 'EpixStudios by Damian Moore'}</title>
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=block" rel="stylesheet" />
       {/* <link rel="icon" href="/static/images/cropped-favicon-32x32.png" sizes="32x32" />
       <link rel="icon" href="/static/images/cropped-favicon-192x192.png" sizes="192x192" /> */}
@@ -104,6 +104,7 @@ const Layout = props => (
       
       pre {
         padding: 12px 16px;
+        margin-bottom: 16px;
         overflow: auto;
         font-size: 85%;
         background-color: #f6f8fa;
