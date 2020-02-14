@@ -21,13 +21,20 @@ const Header = () => (
         color: rgba(255,255,255,0.25);
         display: inline-block;
         line-height: 1;
-        margin: 92px 0 0 30px;
+        margin: 93px 0 0 30px;
         font-size: 18px;
         font-style: italic;
+        font-weight: 400;
         vertical-align: top;
       }
       #header a {
         color: rgba(255,255,255,0.33);
+      }
+      @media only screen and (max-width: 600px) {
+        #header .strapline {
+          display: block;
+          margin: 20px 0 0 0;
+        }
       }
     `}</style>
   </>

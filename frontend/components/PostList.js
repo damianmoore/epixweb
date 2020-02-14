@@ -1,6 +1,6 @@
-import css from 'styled-jsx/css'
 import React, {useState} from 'react'
 import Masonry from 'react-masonry-component'
+import { motion } from 'framer-motion'
 
 import Card from '../components/Card'
 
@@ -13,37 +13,9 @@ const PostList = (props) => {
   function handleUpdate() {
     // passing empty object re-renders the component
     setState({})
-    document.getElementById('masonryContainer').style.marginTop = 0
   }
   
   if (props.posts) {
-    let masonryOptions = {
-      itemSelector: 'li',
-      columnWidth:  250,
-      fitWidth:     true,
-      gutter:       30,
-      stagger:      100,
-    }
-    const { className, styles } = css.resolve`
-      {
-        margin: 30px auto;
-        padding: 0;
-      }
-      :hover li {
-        opacity: 0.66;
-      }
-      :hover li:hover {
-        opacity: 1;
-      }
-
-      @media (max-width: 768px) {
-        {
-          margin: 0;
-          padding: 0;
-        }
-      }
-    `
-
     let posts = []
   
     if (typeof window !== 'undefined' && !initializedEmpty) {
@@ -56,24 +28,46 @@ const PostList = (props) => {
       })
     }
 
+    const motionConfig = {
+      type: 'spring',
+      damping: 20,
+      stiffness: 100
+    }
+
+    let masonryOptions = {
+      itemSelector: 'li',
+      columnWidth:  250,
+      fitWidth:     true,
+      gutter:       30,
+      stagger:      100,
+    }
+
     return (
       <>
-        <div id="masonryContainer">
+        <motion.div
+          transition={motionConfig}
+          initial={{ y: "100vh" }}
+          animate={{ y: 0 }}
+          id="masonry-container"
+        >
           <Masonry
-            className={className}
             elementType={'ul'}
             options={masonryOptions}
+            id="masonry-block"
           >
             {posts}
           </Masonry>
-        </div>
+        </motion.div>
 
-        {styles}
-        <style jsx>{`
-          #masonryContainer {
-            padding: 30px;
-            margin-top: 100vh;
-            transition: 500ms all;
+        <style jsx global>{`
+          #masonry-container {
+            padding: 0 30px;
+          }
+          #masonry-container ul {
+            padding: 0;
+          }
+          #masonry-block {
+            margin: 30px auto;
           }
         `}</style>
       </>

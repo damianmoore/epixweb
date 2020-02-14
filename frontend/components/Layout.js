@@ -4,7 +4,7 @@ import Analytics from './Analytics'
 
 
 const Layout = props => (
-  <div>
+  <>
     <Head>
       <title>{props.title ? props.title + ' | EpixStudios by Damian Moore' : 'EpixStudios by Damian Moore'}</title>
       <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=block" rel="stylesheet" />
@@ -134,7 +134,7 @@ const Layout = props => (
         overflow-y: scroll;
       }
     `}</style>
-  </div>
+  </>
 )
 
 export default Layout

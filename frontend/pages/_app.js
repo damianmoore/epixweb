@@ -1,19 +1,15 @@
 import React from 'react'
 import App from 'next/app'
-import Router from 'next/router';
-import { trackPageView } from '../helpers';
+import Router from 'next/router'
+import { trackPageView } from '../helpers'
 
-// import Nav from '../components/nav'
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props
-    return ( 
-      <>
-        {/* <Nav /> */}
-        <Component {...pageProps} />
-      </>
-    );
+    const { Component, pageProps, router } = this.props
+    return (
+      <Component {...pageProps} key={router.pathname} />
+    )
   }
 
   componentDidMount() {
@@ -24,4 +20,3 @@ class MyApp extends App {
 }
 
 export default MyApp 
-

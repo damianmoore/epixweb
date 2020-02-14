@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import marked from 'marked'
 
@@ -8,7 +7,6 @@ import {fuzzyDate, longDate} from '../../utils/date'
 
 
 const BlogPost = props => {
-  const router = useRouter()
 
   let contentComponents = props.post.content.split(/(\[!gallery-images .+?\]\])/)
   let contentElements = contentComponents.map((el, index) => {
