@@ -3,19 +3,25 @@ from django.db import models
 from pagedown.widgets import AdminPagedownWidget
 
 from .models import Post
+from epixweb.apps.utils.admin import VersionedAdmin
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(VersionedAdmin):
     list_display = ('title', 'slug', 'status', 'created', 'updated')
     list_filter = ('status', 'created', 'updated')
     search_fields = ('title', 'slug', 'status')
     ordering = ('-created',)
     prepopulated_fields = {"slug": ("title",)}
-    exclude = ('created', 'updated')
 
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
+
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'status', 'content', 'photo', 'tags',),
+        }),
+    ) + VersionedAdmin.fieldsets
 
 
 admin.site.register(Post, PostAdmin)

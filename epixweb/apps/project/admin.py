@@ -4,18 +4,27 @@ from mptt_tree_editor.admin import TreeEditor
 from pagedown.widgets import AdminPagedownWidget
 
 from .models import Project
+from epixweb.apps.utils.admin import VersionedAdmin
 
 
 # class ProjectAdmin(TreeEditor):
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(VersionedAdmin):
     list_display = ('title', 'slug', 'status', 'created', 'updated')
     list_filter = ('status', 'created', 'updated')
     search_fields = ('title', 'slug', 'status')
-    exclude = ('created', 'updated')
+    ordering = ('-created',)
+    prepopulated_fields = {"slug": ("title",)}
+    # exclude = ('created', 'updated')
 
     formfield_overrides = {
         models.TextField: {'widget': AdminPagedownWidget},
     }
+
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'status', 'content', 'photo', 'github_uri', 'parent', 'tags',),
+        }),
+    ) + VersionedAdmin.fieldsets
 
 
 admin.site.register(Project, ProjectAdmin)

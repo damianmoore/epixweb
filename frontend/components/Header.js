@@ -5,7 +5,7 @@ const Header = () => (
   <>
     <header id="header">
       <div>
-        <Link href="/"><a><img src="http://localhost:8000/static/img/logo.svg" /></a></Link>
+        <Link href="/"><a><img src="/static/img/logo.svg" /></a></Link>
         <h2 className="strapline">Stuff made by <Link href="/about/"><a>Damian Moore</a></Link></h2>
       </div>
     </header>
