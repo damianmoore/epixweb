@@ -98,6 +98,16 @@ const Layout = props => (
         padding: 0 0 0 20px;
       }
 
+      ol {
+        list-style: disc;
+        margin: 0 0 16px 16px;
+        padding: 0 0 0 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
       a {
         outline: 0;
       }
