@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import BlogPostCard from './cards/BlogPostCard'
+import ProjectCard from './cards/ProjectCard'
 
 
 const Card = (props) => {
