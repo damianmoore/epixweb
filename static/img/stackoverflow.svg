@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg2673"
+   version="1.1"
+   viewBox="0 0 6.3499999 6.3500002"
+   height="24"
+   width="24">
+  <defs
+     id="defs2667">
+    <mask
+       fill="white"
+       height="44"
+       width="44"
+       y="0"
+       x="0"
+       maskUnits="objectBoundingBox"
+       maskContentUnits="userSpaceOnUse"
+       id="mask-86">
+      <circle
+         style="stroke-width:0.07000434"
+         id="use1934"
+         cx="1.5400954"
+         cy="1.5400954"
+         r="1.5400954" />
+    </mask>
+    <mask
+       fill="white"
+       height="44"
+       width="44"
+       y="0"
+       x="0"
+       maskUnits="objectBoundingBox"
+       maskContentUnits="userSpaceOnUse"
+       id="mask-14">
+      <circle
+         style="stroke-width:3.38135266"
+         id="use1790"
+         cx="74.014206"
+         cy="74.013908"
+         r="74.389763" />
+    </mask>
+    <mask
+       fill="white"
+       height="44"
+       width="44"
+       y="0"
+       x="0"
+       maskUnits="objectBoundingBox"
+       maskContentUnits="userSpaceOnUse"
+       id="mask-14-5">
+      <circle
+         style="stroke-width:3.38135266"
+         id="use1790-3"
+         cx="74.014206"
+         cy="74.013908"
+         r="74.389763" />
+    </mask>
+    <mask
+       fill="white"
+       height="44"
+       width="44"
+       y="0"
+       x="0"
+       maskUnits="objectBoundingBox"
+       maskContentUnits="userSpaceOnUse"
+       id="mask-4">
+      <circle
+         style="stroke-width:3.3611114"
+         id="use1770"
+         cx="73.94445"
+         cy="73.94445"
+         r="73.94445" />
+    </mask>
+    <mask
+       fill="white"
+       height="44"
+       width="44"
+       y="0"
+       x="0"
+       maskUnits="objectBoundingBox"
+       maskContentUnits="userSpaceOnUse"
+       id="mask-84">
+      <circle
+         style="stroke-width:3.3611114"
+         id="use1930"
+         cx="73.94445"
+         cy="73.94445"
+         r="73.94445" />
+    </mask>
+  </defs>
+  <metadata
+     id="metadata2670">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-290.64998)"
+     id="layer1">
+    <g
+       transform="matrix(0.14388557,0,0,0.14388557,0.01903486,290.66903)"
+       id="github">
+      <g
+         transform="matrix(0.53333333,0,0,0.53333333,0.42862378,0.42857067)"
+         id="linkedin" />
+      <g
+         transform="matrix(1.0030066,0,0,1.0030066,-0.13229165,-0.13239707)"
+         id="linkedin-5">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="stackoverflow">
+          <path
+             id="path2376"
+             d="m 25.442571,26.526849 -10.014229,-0.943123 -0.199213,2.176521 10.028547,0.942945 z m -0.241813,2.800343 -10.057005,0.0146 v 2.190411 l 10.057005,-0.01407 z m 2.176323,-8.16863 -8.662866,-5.223329 -1.095233,1.886068 8.662692,5.223329 z m -1.265986,2.495465 -9.715498,-2.655205 -0.554862,2.118288 9.715672,2.655383 z m 0.810468,9.619466 H 13.721155 V 24.307055 H 12 v 10.678342 h 0.01432 L 12.512261,35 h 16.102347 v -0.0146 l 0.01432,-0.50789 V 24.307055 H 26.921563 Z M 30.27902,9 28.159265,9.3771781 29.880769,19.489931 32,19.112753 Z m -8.222015,3.380534 5.675725,8.473329 1.764105,-1.233219 -5.661757,-8.487754 z"
+             style="fill:#000000;fill-opacity:1" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

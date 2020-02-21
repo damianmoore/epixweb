@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="24"
+   height="24"
+   viewBox="0 0 6.3499999 6.3500002"
+   version="1.1"
+   id="svg2673">
+  <defs
+     id="defs2667">
+    <mask
+       id="mask-86"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="44"
+       height="44"
+       fill="white">
+      <circle
+         r="1.5400954"
+         cy="1.5400954"
+         cx="1.5400954"
+         id="use1934"
+         style="stroke-width:0.07000434" />
+    </mask>
+    <mask
+       id="mask-14"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="44"
+       height="44"
+       fill="white">
+      <circle
+         r="74.389763"
+         cy="74.013908"
+         cx="74.014206"
+         id="use1790"
+         style="stroke-width:3.38135266" />
+    </mask>
+    <mask
+       id="mask-14-5"
+       maskContentUnits="userSpaceOnUse"
+       maskUnits="objectBoundingBox"
+       x="0"
+       y="0"
+       width="44"
+       height="44"
+       fill="white">
+      <circle
+         r="74.389763"
+         cy="74.013908"
+         cx="74.014206"
+         id="use1790-3"
+         style="stroke-width:3.38135266" />
+    </mask>
+  </defs>
+  <metadata
+     id="metadata2670">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     style="fill:#000000;fill-opacity:1"
+     id="layer1"
+     transform="translate(0,-290.64998)">
+    <g
+       style="fill:#000000;fill-opacity:1"
+       id="github"
+       transform="matrix(0.14388557,0,0,0.14388557,0.01903486,290.66903)">
+      <g
+         style="fill:#000000;fill-opacity:1"
+         id="linkedin"
+         transform="matrix(0.53333333,0,0,0.53333333,0.42862378,0.42857067)" />
+      <g
+         style="fill:#000000;fill-opacity:1"
+         id="linkedin-5"
+         transform="matrix(1.0030066,0,0,1.0030066,-0.13229165,-0.13239707)">
+        <path
+           style="fill:#000000;fill-opacity:1"
+           d="m 12.504469,18.413113 h 3.898165 v 13.585606 h -3.898165 z m 1.849717,-1.699321 h -0.02822 C 12.914864,16.713792 12,15.675247 12,14.360097 12,13.018056 12.94191,12 14.381232,12 c 1.438147,0 2.322437,1.015495 2.350659,2.356256 0,1.315149 -0.912512,2.357536 -2.377705,2.357536 z M 32,32 h -4.420273 v -7.03163 c 0,-1.840185 -0.691439,-3.095147 -2.2119,-3.095147 -1.162982,0 -1.809737,0.846459 -2.110772,1.664746 -0.112888,0.291971 -0.09525,0.700474 -0.09525,1.110257 V 32 H 18.78269 c 0,0 0.05644,-12.45486 0,-13.586887 h 4.379116 v 2.132155 c 0.258702,-0.932257 1.658043,-2.262773 3.89111,-2.262773 2.770461,0 4.947084,1.955436 4.947084,6.16212 z"
+           id="path2133" />
+      </g>
+    </g>
+  </g>
+</svg>
