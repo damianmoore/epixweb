@@ -99,7 +99,6 @@ const Layout = props => (
       }
 
       ol {
-        list-style: disc;
         margin: 0 0 16px 16px;
         padding: 0 0 0 20px;
       }

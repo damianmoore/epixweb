@@ -6,7 +6,7 @@ const Header = () => (
     <header id="header">
       <div>
         <Link href="/"><a><img src="/static/img/logo.svg" /></a></Link>
-        <h2 className="strapline">Stuff made by <Link href="/about/"><a>Damian Moore</a></Link></h2>
+        <h2 className="strapline">Stuff made by <Link href="/about"><a>Damian Moore</a></Link></h2>
       </div>
     </header>
     <style jsx>{`
@@ -31,6 +31,10 @@ const Header = () => (
         color: rgba(255,255,255,0.33);
       }
       @media only screen and (max-width: 600px) {
+        #header img {
+          width: 200px;
+          display: block;
+        }
         #header .strapline {
           display: block;
           margin: 20px 0 0 0;

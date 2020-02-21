@@ -8,8 +8,8 @@ const Card = (props) => {
   let uriHref = ''
   let uriAs = ''
   if (props.post.type && props.post.slug) {
-    uriHref = '/' + props.post.type + '/[slug]/'
-    uriAs = '/' + props.post.type + '/' + props.post.slug + '/'
+    uriHref = '/' + props.post.type + '/[slug]'
+    uriAs = '/' + props.post.type + '/' + props.post.slug
   }
 
   let coverImage = ''

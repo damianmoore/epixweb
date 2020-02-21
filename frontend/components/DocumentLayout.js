@@ -27,6 +27,11 @@ const DocumentLayout = props => {
             border-radius: 0;
           }
         }
+        @media only screen and (max-width: 600px) {
+          .content {
+            padding: 30px 20px 4px 20px;
+          }
+        }
       `}</style>
     </Layout>
   )
