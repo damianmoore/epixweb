@@ -2,7 +2,7 @@ import Layout from '../components/Layout';
 
 const DocumentLayout = props => {
   return (
-    <Layout title={props.title}>
+    <Layout title={props.title} description={props.description} image={props.image}>
       <div className="container">
         <div className="content">
           {props.children}

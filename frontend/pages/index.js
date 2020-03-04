@@ -8,7 +8,7 @@ export default function Index({ data }) {
   let results = data?.results
 
   return (
-    <Layout>
+    <Layout description="This is the personal site of Damian Moore. It documents the projects I've worked on and things that interest me.">
       <PostList posts={results} />
     </Layout>
   )
