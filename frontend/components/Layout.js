@@ -14,12 +14,12 @@ const Layout = props => (
       <meta name="viewport" content="width=device-width" />
       <meta property="og:locale" content="en_GB" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={props.title ? props.title : 'EpixStudios by Damian Moore'} />
+      <meta property="og:title" content={props.title ? props.title + ' | EpixStudios by Damian Moore' : 'EpixStudios by Damian Moore'} />
       <meta property="og:description" content={props.description} />
-      <meta property="og:site_name" content="Free Documentary Streaming" />
+      <meta property="og:site_name" content="EpixStudios by Damian Moore" />
       <meta property="og:image" content={props.image} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={props.title} />
+      <meta name="twitter:title" content={props.title ? props.title + ' | EpixStudios by Damian Moore' : 'EpixStudios by Damian Moore'} />
       <meta name="twitter:description" content={props.description} />
       <meta name="twitter:site" content="@damianmoore" />
       <meta name="twitter:image" content={props.image} />

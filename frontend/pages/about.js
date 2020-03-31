@@ -2,13 +2,16 @@ import DocumentLayout from '../components/DocumentLayout'
 
 export default function About() {
   return (
-    <DocumentLayout title="About" description="Links to my social media accounts, key skills and work history, interests and education.">
+    <DocumentLayout
+      title="About"
+      description="Links to my social media accounts, key skills and work history, interests and education."
+    >
       <h1>About</h1>
       <p>
-        Hi, I'm Damian Moore and I hope you've found some interesting ideas on
+        Hi, I'm Damian Moore and I hope you've found some interesting content on
         my site. I started this as a personal homepage in 2002, made it into a
-        blog in 2008 and now also use it place to document some of the personal
-        projects I've worked on.
+        blog in 2008 and now also use it as a place to document some of the
+        personal projects I've worked on.
       </p>
       <div className="social">
         <a href="https://github.com/damianmoore">
