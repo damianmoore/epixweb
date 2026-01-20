@@ -1,3 +1,8 @@
+/* Override demo.css styles that break Django admin */
+.wmd-button-bar {
+    background-color: transparent !important;
+}
+
 .wmd-wrapper{
     display: inline-block;
 }
@@ -5,6 +10,7 @@
 .wmd-panel{
     margin-left: 0;
     width: 100%;
+    min-width: auto !important;
 }
 
     .wmd-panel textarea {
@@ -24,8 +30,9 @@
 }
 
 .wmd-input{
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: var(--body-bg, white) !important;
+    color: var(--body-fg, #333) !important;
+    border: 1px solid var(--border-color, #ccc) !important;
     border-radius: 4px;
     padding: 5px 6px;
     margin-top: 0;
@@ -42,10 +49,11 @@
 
     box-sizing: border-box;
     padding: 12px 14px;
-    margin: 0;
-    background: #f8f8f8;
-    border: 1px solid #eee;
+    margin: 10px 0 0 0;
+    background: var(--darkened-bg, #f8f8f8) !important;
+    border: 1px solid var(--border-color, #ccc) !important;
     border-radius: 4px;
+    color: var(--body-fg, #333) !important;
 }
 
 .wmd-preview * {
@@ -54,18 +62,18 @@
 
 
 .wmd-preview a {
-    color: #447e9b;
+    color: var(--link-fg, #447e9b);
     text-decoration:underline;
 }
 
 .wmd-preview a:link,
 .wmd-preview a:visited{
-    color: #447e9b;
+    color: var(--link-fg, #447e9b);
 }
 
 .wmd-preview a:hover,
 .wmd-preview a:focus{
-    color: #036;
+    color: var(--link-hover-color, #036);
 }
 
 .wmd-preview a:active{
@@ -102,7 +110,7 @@
 .wmd-preview h6 {
     margin: 20px 0 15px 0!important;
     padding: 0;
-    color: #666;
+    color: var(--body-quiet-color, #666);
     font-weight: bold;
     background: none;
     border: 0;
@@ -139,7 +147,7 @@
 .wmd-preview blockquote{
     margin: 0 0 15px 0;
     padding-left: 1em;
-    border-left: 0.5em #ddd solid;
+    border-left: 0.5em var(--hairline-color, #ddd) solid;
 }
 
     .wmd-preview blockquote p {
@@ -152,7 +160,7 @@
     height: 0px;
     border: 0;
     font-style: italic;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--hairline-color, #ddd);
     margin: 0 0 15px 0;
     padding: 0;
 }
@@ -161,7 +169,7 @@
 .wmd-preview code,
 .wmd-preview kbd,
 .wmd-preview samp {
-    color: #000;
+    color: var(--body-fg, #000);
     font-family: Consolas, "Liberation Mono", Courier, monospace, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !important;
 }
 
@@ -169,10 +177,10 @@
 .wmd-preview code {
     margin: 0 2px;
     padding: 0px 5px;
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
+    border: 1px solid var(--hairline-color, #ddd);
+    background-color: var(--darkened-bg, #f8f8f8);
     border-radius: 2px;
-    color: #444;
+    color: var(--body-fg, #444);
     font-size: 95%;
 }
 
@@ -190,8 +198,8 @@
 
     margin: 0 0 15px 0;
     padding-left: 1em;
-    border-left: 0.5em #ddd solid;
-    background-color: #eee;
+    border-left: 0.5em var(--hairline-color, #ddd) solid;
+    background-color: var(--darkened-bg, #eee);
     border-radius: 0 4px 4px 0;
 }
 .wmd-preview pre code {
@@ -262,7 +270,7 @@
     font-weight: normal;
     border: 0;
     padding: 0;
-    color: #666;
+    color: var(--body-quiet-color, #666);
 }
 
 /* Inlines */

@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django.db import models
-from pagedown.widgets import AdminPagedownWidget
 
 from .models import Post
-from epixweb.apps.utils.admin import VersionedAdmin
+from epixweb.apps.utils.admin import VersionedAdmin, CustomAdminPagedownWidget
 
 
 class PostAdmin(VersionedAdmin):
@@ -14,7 +13,7 @@ class PostAdmin(VersionedAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
     formfield_overrides = {
-        models.TextField: {'widget': AdminPagedownWidget},
+        models.TextField: {'widget': CustomAdminPagedownWidget},
     }
 
     fieldsets = (
