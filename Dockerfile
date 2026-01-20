@@ -53,8 +53,8 @@ WORKDIR /srv
 # Set environment for production
 ENV ENV=prd
 
-# Collect Django static files from apps
-RUN python manage.py collectstatic --noinput --link
+# Collect Django static files from apps (copy files, don't use symlinks)
+RUN python manage.py collectstatic --noinput
 
 CMD supervisord -c /srv/system/supervisord.conf
 

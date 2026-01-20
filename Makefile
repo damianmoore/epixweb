@@ -1,11 +1,11 @@
 build:
-	docker-compose build
+	docker compose build
 
 start:
-	docker-compose up
+	docker compose up
 
 restart:
-	docker-compose restart epixweb
+	docker compose restart epixweb
 
 shell:
-	docker-compose exec epixweb bash
+	docker compose exec epixweb bash

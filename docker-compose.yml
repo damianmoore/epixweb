@@ -34,10 +34,10 @@ services:
       - ./manage.py:/srv/manage.py
     environment:
       ENV: loc
-      DATABASE_URL: postgres://epixweb:password@postgres:5432/epixweb
-      POSTGRES_HOST: postgres
-      POSTGRES_DB: epixweb
-      POSTGRES_USER: epixweb
-      POSTGRES_PASSWORD: password
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_NAME: epixweb
+      DB_USER: epixweb
+      DB_PASSWORD: password
     depends_on:
       - postgres
