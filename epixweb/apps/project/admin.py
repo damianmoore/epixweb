@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.db import models
-from mptt_tree_editor.admin import TreeEditor
 from pagedown.widgets import AdminPagedownWidget
 
 from .models import Project

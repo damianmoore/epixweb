@@ -25,5 +25,20 @@
     "react-masonry-component": "^6.2.1",
     "react-photo-gallery": "^8.0.0",
     "swr": "^0.1.16"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "Chrome 38"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      ">0.2%",
+      "Chrome 38"
+    ]
   }
 }

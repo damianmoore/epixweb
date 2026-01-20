@@ -23,7 +23,7 @@ def gallery_dir(path):
             parent = Folder.objects.get(name=component, parent=parent)
 
         files = []
-        for file in parent.files:
+        for file in sorted(parent.files):
             files.append({
                 'src': file.url,
                 'srcSet': [

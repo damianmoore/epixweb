@@ -1,15 +1,15 @@
-version: '2'
 services:
-  mysql:
-    container_name: epixweb-mysql
-    image: mysql:5.7
+  postgres:
+    container_name: epixweb-postgres
+    image: postgres:16
     volumes:
-     - ./volumes/mysql:/var/lib/mysql
+     - ./volumes/postgres:/var/lib/postgresql/data
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: epixweb
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: epixweb
+      POSTGRES_USER: epixweb
     ports:
-     - "3306:3306"
+     - "5432:5432"
 
   epixweb:
     container_name: epixweb
@@ -20,8 +20,6 @@ services:
      - "8002:8001"
      - "3000:3000"
      - "3001:3001"
-    links:
-     - mysql
     volumes:
       - ./epixweb:/srv/epixweb
       - ./frontend/package.json:/srv/frontend/package.json
@@ -30,17 +28,16 @@ services:
       - ./frontend/pages:/srv/frontend/pages
       - ./frontend/utils:/srv/frontend/utils
       - ./volumes/uploads:/srv/epixweb/var/uploads
-      # - ./frontend/package.json:/srv/frontend/package.json
-      # - ./frontend/package-lock.json:/srv/frontend/package-lock.json
       - ./static:/srv/static
       - ./system:/srv/system
       - ./templates:/srv/templates
       - ./manage.py:/srv/manage.py
     environment:
       ENV: loc
-      MYSQL_HOST: mysql
-      MYSQL_DATABASE: epixweb
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      DATABASE_URL: postgres://epixweb:password@postgres:5432/epixweb
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: epixweb
+      POSTGRES_USER: epixweb
+      POSTGRES_PASSWORD: password
     depends_on:
-      - mysql
+      - postgres

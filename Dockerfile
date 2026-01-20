@@ -1,15 +1,17 @@
-FROM python:3.8.1-slim-buster
+FROM python:3.11-slim-bookworm
 
 RUN apt-get update && \
     apt-get install -y \
+        build-essential \
         curl \
-        default-libmysqlclient-dev \
         git \
+        libcairo2-dev \
+        libffi-dev \
         libjpeg-dev \
+        libpq-dev \
         locales \
         nginx-light \
-        python-dev \
-        python-pip \
+        pkg-config \
         supervisor \
         && \
     apt-get clean && \
@@ -17,16 +19,13 @@ RUN apt-get update && \
                /tmp/* \
                /var/tmp/*
 
-# Install Node & Yarn
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && \
-    apt-get install -y nodejs yarn && \
-         apt-get clean && \
-            rm -rf /var/lib/apt/lists/* \
-                   /tmp/* \
-                   /var/tmp/*
+# Install Node 18 LTS (required for older webpack/Next.js versions)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* \
+           /tmp/* \
+           /var/tmp/*
 
 # Install Python dependencies
 COPY requirements.txt /srv/requirements.txt
@@ -44,11 +43,15 @@ COPY static /srv/static
 COPY templates /srv/templates
 COPY manage.py /srv/manage.py
 
-# Build Next.js app
+# Build Next.js app (use legacy OpenSSL for older webpack)
 COPY frontend /srv/frontend
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
 WORKDIR /srv
+
+# Set environment for production
+ENV ENV=prd
 
 # Collect Django static files from apps
 RUN python manage.py collectstatic --noinput --link

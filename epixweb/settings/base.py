@@ -1,6 +1,6 @@
 """Base settings shared by all environments"""
-# Import global settings to make it easier to extend settings.
-from django.conf.global_settings import *   # pylint: disable=W0614,W0401
+# Import only what's needed from global settings (avoid deprecated settings)
+from django.conf.global_settings import AUTHENTICATION_BACKENDS  # pylint: disable=W0614,W0401
 
 # ==============================================================================
 # Generic Django project settings
@@ -34,9 +34,7 @@ INSTALLED_APPS = (
     #'djcelery',
     'easy_thumbnails',
     'filer',
-    #'markupfield',
     'mptt',
-    'mptt_tree_editor',
     'pagedown.apps.PagedownConfig',
     # 'south',
     # 'tagging',
@@ -144,8 +142,7 @@ MIDDLEWARE = [
 # Auth / security
 # ==============================================================================
 
-AUTHENTICATION_BACKENDS += (
-)
+AUTHENTICATION_BACKENDS = list(AUTHENTICATION_BACKENDS)
 
 # ==============================================================================
 # Miscellaneous project settings
@@ -204,3 +201,16 @@ TAGGIT_TAGCLOUD_MIN = 10
 TAGGIT_TAGCLOUD_MAX = 20
 
 THUMBNAIL_HIGH_RESOLUTION = True
+
+# Django 4.2+ storages configuration
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
+# Required for Django 4.2+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
